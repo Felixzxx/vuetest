@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /* && || 非布尔值的情况
+    对于非布尔值进行与或运算时
+    会向将其转换为布尔值，然后再运算 */
+    var result=2&&1;
+    console.log("result="+result);
+    var result=0&&1;
+    console.log("result="+result);
+    var result=2&&0;
+    console.log("result="+result);
+    var result=NaN&&0;
+    console.log("result="+result);
+    var result=0&&NaN;
+    console.log("result="+result);
+    /* &&  如果第一个值为true则返回第二个值，如果第一个值为false则返回第一个值 */
+
+
+    var result=2||1;
+    console.log("result="+result);
+    var result=0||1;
+    console.log("result="+result);
+    var result="0"||1;
+    console.log("result="+result);
+    var result=""||1;
+    console.log("result="+result);
+    /* 如果第一个值为true则返回第一个值，如果第一个值为false则返回第二个值 */
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //1.以函数的形式调用时，this永远都是window
+        function fun(){
+            console.log(this);
+        }
+        var obj={
+            name:1,
+            //sayName:fun
+        };
+        fun();
+
+        //2.以方法的形式调用时，this就是调用方法的那个对象
+        function fun2(){
+            console.log(this.name);
+        }
+        var obj2={
+            name:0,
+            sayName:fun2
+        };
+        obj2.sayName();//
+
+        //补充
+        var name="全局";
+        function fun3(){
+            console.log(this.name);
+        }
+        var obj={
+            name:"臧陶然",
+            sayName:fun3
+        }
+        var obj2={
+            name:"左林杰",
+            sayName:fun3
+        }
+        obj2.sayName();
+
+        //3.以构造函数的形式调用时，this是新创建的那个对象
+        //试用工厂方法创建对象
+        function fun4(name,age,gender){
+            //创建一个新的对象(重点！！)
+            var obj=new Object();
+            obj.name=name;
+            obj.age=age;
+            obj.gender=gender;
+            obj.sayName=function(){
+                alert(this.name);
+            };
+            //将新的对象返回
+            return obj;
+        }
+        var obj2=fun4("臧陶然",20,"女");
+        var obj3=fun4("臧陶然1",20,"女");
+
+        console.log(obj2);
+        console.log(obj3);
+
+        obj3.sayName();
+
+        //4.使用call和apply调用时，this就是指定的那个对象
+        //详情见79
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

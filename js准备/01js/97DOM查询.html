@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //获取具体的节点调用
+        /* 
+        parentNode
+            -属性 表示当前节点的父节点
+        previousSibling
+            -属性 表示当前节点的前一个兄弟节点
+        nextSibling
+            -属性 表示当前节点的后一个兄弟节点
+        */
+
+        //previousElementSibling获取前一个兄弟元素
+
+        //定义一个函数，专门用来指定元素绑定单击响应函数
+        /* 参数：idstr要绑定单击响应函数的对象的id属性值
+            fun事件的回调函数，当单击元素时，该函数将会被触发
+         */
+         window.onload=function () {
+        function myClick(idstr,fun){
+            var btn=document.getElementById(idstr);
+            btn.onclick=fun;/* function(){
+                var city=document.getElementById("bj");
+                    alert(bj.innerHTML);
+                }; */
+        }
+        myClick("btn1",function(){
+            //获取id为bj的节点
+            var a =document.getElementById("bj");
+            //返回#bj的父节点,也就是ul
+            var pn=a.parentNode;
+            alert(pn.innerHTML);
+            alert(pn.innerText);//可获得标签内内容
+
+        });
+
+        myClick("btn2",function(){
+            //获取id为bj的节点
+            var b =document.getElementById("sh");
+            //返回#bj的父节点,也就是ul
+            var pn=b.parentNode;
+            alert(pn.innerHTML);
+            alert(pn.innerText);//可获得标签内内容
+
+        });
+
+        myClick("btn3",function(){
+            //获取id为bj的节点
+            var c =document.getElementById("sh");
+            //返回#bj的父节点,也就是ul
+            var pn=c.previousElementSibling;//previousElementSibling获取前一个兄弟元素
+            alert(pn);
+            alert(pn.innerHTML);//可获得标签内内容
+
+        });
+
+        myClick("btn4",function(){
+            //获取id为bj的节点
+            var d =document.getElementById("username");
+            alert(d.value);//框框里面输入什么，就弹出什么
+        });
+
+        myClick("btn5",function(){
+            //获取id为bj的节点
+            var e =document.getElementById("username");
+            e.value="重新输入"//更改框内字
+        });
+
+        myClick("btn6",function(){
+            //获取id为bj的节点
+            var f =document.getElementById("bj");
+            var ff=bj.firstChild;
+            alert(ff.nodeValue);//返回文本节点
+            alert(bj.firstChild.nodeValue);
+        });
+
+
+    }
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li id="sh">上海</li>
+        <li>广东</li>
+    </ul>
+    <input type="text" name="name" id="username" value=""><br>
+    <button id="btn1">btn1</button>
+    <button id="btn2">btn2</button>
+    <button id="btn3">btn3</button>
+    <button id="btn4">btn4</button>
+    <button id="btn5">btn5</button>
+    <button id="btn6">btn6</button>
+    
+</body>
+</html>

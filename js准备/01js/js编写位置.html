@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--可以将js代码编写到外部js文件中，然后通过scrip标签引入
+    写到外部文件中可以在不同的页面中同时引用，也可以利用到浏览器的缓存机制
+    （推荐使用的方式）-->
+    <script type="text/javascript" src="js/01.js"></script>
+    <!--script标签一但用于引入外部文件了就不能编写代码了，即便编写了浏览器也会忽略
+    如果需要则可以创建一个新的script标签用于编写内部代码（按顺序）-->
+    <script>
+    alert("内部代码");
+    </script>
+    <!-- alt + shift + a -->
+    
+</head>
+<body>
+    
+</body>
+</html>

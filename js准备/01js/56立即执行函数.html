@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //函数调用
+        /* (function(a,b){
+            console.log("a="+a);
+            console.log("b="+b);
+        })(123,456); */
+
+        var obj =new Object();
+        //向对象中添加属性
+        obj.name="我";
+        obj.a=obj.name;
+        
+        //对象的属性值可以是任何的数据类型，也可以是个函数
+        obj.say=function(){
+            console.log(obj.a);
+        }
+        obj.say(); 
+
+        var obj2={
+            name:"1",
+            age:3,
+            say2:function(){
+                console.log(obj2.age);
+            }
+        };
+        obj2.say2();
+
+        //枚举对象中的属性
+        //语法：for（var 变量 in 对象）{}
+        //对象中有几个属性，循环体就执行几次
+        //每次执行时，会将对象中的一个属性的名字赋值给变量
+        //obj[n]传递变量，obj.n为n固定的名称也就是字符串
+        for(var n in obj){
+            console.log(obj[n])
+        }
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

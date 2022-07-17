@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /* //输出对7整除（1-100）//总和//计数器
+        var a=0;
+        var b=0;
+        for(var i=1; i<=100; i++){
+            if(i%7==0){
+                console.log(i);
+                a=a+i;//或者a+=i;
+                b++;
+           
+            }   
+        }
+        console.log("总和="+a);
+        console.log("个数="+b); */
+
+
+
+        /* //水仙花数是指一个三位数，它的每个位上的数字的三次幂之和等于它本身，（例如1^3+5^3+3^3=153）请打印所有水仙花数      
+        for(var i=100;i<=999;i++){
+           var a=parseInt(i/100); 
+           //console.log("百位数"+a);
+           var b=parseInt(i/10-a*10);//i/10%10 或 (i-a*100)/10
+           //console.log("十位数"+b);
+           var c=parseInt(i-a*100-b*10);//i%10
+           //console.log("个位数"+c);
+           
+           if(a*a*a+b*b*b+c*c*c==i){
+            console.log("i="+i);
+           }
+        } */
+
+
+        //在页面中接收一个用户输入的数字，并判断是否是质数，质数：只能被1和他自身整除的数，1不是质数也不是合数，质数必须是大于1的自然数
+        console.time("a");
+        var num = prompt("请输入一个整数");
+        var flag=true;
+
+        if(num<1){
+            alert("不合法");
+        }else{
+            for(var i=2;i<num;i++){//获取2-num之间的数
+                if(num%i==0){
+                    alert("不是质数");
+                    flag=false;
+                    
+                }
+            }
+            if(flag==true){
+                alert("是质数");
+            }
+        }
+        console.timeEnd("a");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

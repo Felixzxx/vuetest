@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1(){
+            alert(this.name);
+        }
+        var obj1={name:"obj1"};
+        var obj2={name:"obj2"};
+        
+        fun1.apply(obj2);
+        fun1.call(obj1);
+
+        /* call()和apply()
+        这两个方法都是函数对象的方法，需要通过函数对象来调用
+        当时函数调用call()和apply()都会调用函数执行
+        在调用call和apply()可以将一个对象指定为第一个参数 
+        此时这个对象将会成为函数执行时的this*/
+
+        /* 复习
+        1，解析器在调用函数时，每次都向函数内部传递进一个隐含的参数
+            这个对象我们成为函数执行的上下文对象
+        2，以方法的形式调用时，this就是调用方法的那个对象 */
+        var obj3={name:"obj3"};
+        var obj4={name:"obj4"};
+        
+        var obj={
+            name:"obj",
+            sayName:function(){
+                alert(this.name);
+            }
+        };
+        obj.sayName.apply(obj4);//加了个实参obj2,也就是this//输出obj2
+
+
+        /* call()方法可以将实参在对象之后依次传递
+        apply()方法需要将实参封装到一个数组中统一传递 */
+        function fun(a,b){
+            console.log("a="+a);
+            console.log("b="+b);
+        }
+        fun.call(obj,1,5);
+        fun.apply(obj,[1,2]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则</title>
+    <script>
+        /*  检查一个字符串是否含有.
+                . 表示任意字符
+                \ 转义字符 */
+    var reg=/./;
+    console.log(reg.test("b"));
+
+    var reg=/\./;
+    console.log(reg.test("b"));
+    console.log(reg.test("."));
+
+    var reg=/\\/;/* 转义 */
+    var result="\\b";/* 转义 */
+    console.log(result);
+    console.log(reg.test(result));
+
+    /* 
+    \w 数字，字母[A-z 0-9]
+    \W 除了数字，字母[^A-z 0-9]
+    \d 任意的数字[0-9]
+    \D 除了数字[^0-9]
+    \s 空格
+    \S 除了空格
+    \b 单词边界
+    \B 除了单词边界
+     */
+
+     reg=/\bchild\b/;
+     console.log(reg.test("hello child%ren"));//检查的是半角英数字和下划线,奇怪的检查不出来
+
+     /* 去除字符串中的所有空格 
+     也就是用空串代替*/
+     var str="         hello       ";
+     console.log(str);
+     str=str.replace(/\s/g ,"");//全局
+     console.log(str);
+
+
+     /* 去除开头的空格 */
+     var str="         hello       ";
+     console.log(str);
+     str=str.replace(/^\s*/ ,"");//去开头
+     console.log(str);
+     str=str.replace(/\s*$/ ,"");//去结尾
+     console.log(str);
+     str=str.replace(/^\s*|\s*$/g ,"");//去开头和结尾
+     console.log(str);
+
+
+
+
+
+
+
+     
+
+
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

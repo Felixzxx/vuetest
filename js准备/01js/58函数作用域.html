@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+        /* //函数声明，会被提前创建
+        fun();
+        function fun(){
+            console.log("我是一个fun函数")
+        }
+
+        //函数表达式声明，不会被提前创建
+        var fun2=function(){
+            console.log("我是")
+        }
+        fun2();
+
+
+        function fun4(){
+        }
+            fun4();
+            fun4();
+            fun4();
+
+
+
+            //在函数作用域中可以访问到全局作用域的变量
+        var a = 10;
+        function fun3(){
+            console.log("a=" +a);
+        }
+        fun3(); */
+
+
+        //在函数中，不适用var声明变量都会成为全局变量
+        var c=33;
+        function fun4(){
+            c=10;
+        }
+        fun4();
+        console.log(c);
+
+
+        var d = 7;
+        function fun5(){
+            var d=11;
+            function fun6(){
+                console.log("d="+window.d);
+            }
+            fun6();
+        }fun5();
+
+        //用var定义函数，会在执行所有代码前声明，但不会被做赋值处理
+                //undefined
+                function fun7(){
+                    console.log(c);
+                    var c=8;
+                }
+                fun7();
+
+                //undefined
+                var e=3
+                function fun8(){
+                    console.log(e);
+                    var e=2;
+                }
+                fun8();
+
+                //3
+                var f=3
+                function fun9(){
+                    console.log(f);
+                    f=2;
+                }
+                fun9();
+
+                //23
+                var g=23;
+                function fun10(g){
+                    console.log(g);
+                }
+                fun10("g="+g);
+
+                
+                //外面的输出是输出的全局变量h
+                var h=123;
+                function fun11(){
+                    console.log(h);//undefined
+                    var h=456;
+                }
+                fun11();
+                console.log(h);//123   因为函数里面的h是定义函数里面的，
+
+
+                //123;456  没有在函数内定义变量，
+                //所以函数内的i=456,是对全局变量的赋值
+                var i=123;
+                function fun12(){
+                    console.log(i);
+                    i=456;
+                }
+                fun12();
+                console.log(i);
+
+
+                //undefined;123  
+                //因为形参定义了j，相当于在函数内var了一个j，
+                //所以函数内对j进行的赋值
+                var j = 123;
+                function fun13(j){
+                    console.log(j);
+                    j=456;
+                }
+                fun13();//没传东西
+                console.log(j);
+
+                //123;123
+                var h = 123;
+                function fun14(h){
+                    console.log(h);
+                    h=456;//修改的局部的
+                }
+                fun14(123);//传入123
+                console.log(h);
+
+
+
+
+
+
+
+
+
+        
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

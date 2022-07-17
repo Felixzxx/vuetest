@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style-type: none;
+        }
+        a,img{
+            border:0;
+            text-decoration: none;
+        }
+        body{
+            font: 15px/180% Arial,Helvetica,sans-serif,"新宋体" ;
+        }
+        .sdmenu{
+            width:150px;
+            margin: 0 auto;
+            padding-bottom: 10px;
+            color: #fafafa;
+  
+
+        }
+        .sdmenu div{
+            background-color: rgb(238, 238, 238);
+            overflow: hidden;
+
+        }
+        .sdmenu div:first-child{
+            background-color: rgb(249, 249, 249);
+
+        }
+        .sdmenu div.collapsed{
+            height: 25px;
+        }
+        .sdmenu div span{
+            display: block;
+            height: 15px;
+            line-height: 15px;
+            overflow: hidden;
+            padding: 6px 15px;
+            font-weight: bold;
+            color:white;
+            background-color:cornflowerblue;
+            cursor:pointer;
+            border-bottom: 1px solid rgb(243, 243, 243);
+
+        }
+        .sdmenu div a{
+            display: block;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(245, 243, 243, 0.588);
+            color: rgb(105, 105, 105);
+            padding-left:15px;
+        }
+        .sdmenu div a:hover{
+            background-color: rgb(183, 191, 199);
+        }
+
+
+
+    </style>
+    <script src="js/tools.js"></script>
+    <script>
+        window.onload=function(){
+            /* 我们的每一个菜单都是一个div
+                当div具有collapsed这个类时div就是折叠状态
+                当div设有这个类时，div就是展开状态 */
+
+            /* 点击菜单切换显示状态 */
+            var menuSpan=document.querySelectorAll(".menuSpan");
+
+            /* 定义一个变量，来保存当前打开的菜单 */
+            var openDiv=menuSpan[0].parentNode;
+
+            
+            //为span绑定单机响应函数
+            for(var i=0;i<menuSpan.length;i++){
+                menuSpan[i].onclick=function(){
+                    //this代表我当前点击的span
+                    //获取当前span的父元素
+                    var parentDiv=this.parentNode;
+                    
+                    /* 切换菜单的显示状态 */
+                    toggleMenu(parentDiv);
+                    //如果点击的不等于打开的，则关闭之前打开的&&如果打开的里面没有collapsed
+                    if(openDiv!=parentDiv && !hasClass(openDiv,"collapsed")){
+                        //打开菜单以后，应该关闭之前打开的菜单
+                        /* toggleClass(openDiv,"collapsed"); */
+
+                    toggleMenu(openDiv);
+
+                    }
+                    //修改openDiv为当前打开的菜单
+                    openDiv=parentDiv;
+                };
+            }
+
+            //切换菜单的折叠显示状态
+            function toggleMenu(obj){
+                    //切换类之前，获取元素高度
+                    var begin=obj.offsetHeight;
+                    //切换parentDiv的显示
+                    toggleClass(obj,"collapsed");
+
+                    //在切换类之后读取一个高度
+                    var end=obj.offsetHeight;
+
+                    //动画效果就是由begin向end过度
+                    //将元素的高度重置为begin，这样就可以进行动画操作
+                    obj.style.height=begin+"px";
+                    move(obj,"height",end,10,function(){
+                        //添加内联样式后，内联样式级别最高，高度会一直不变
+                        //所以执行完move函数后将内联样式删除（设置为空串）
+                        obj.style.height="";
+                    });
+            }
+            
+            
+        };
+    </script>
+</head>
+<body>
+    <div id="my_menu" class="sdmenu">
+        <div >
+            <span class="menuSpan">在线工具</span>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">在线工具</span>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">在线工具</span>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">在线工具</span>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+            <a href="#">图像优化</a>
+        </div>
+    </div>
+</body>
+</html>

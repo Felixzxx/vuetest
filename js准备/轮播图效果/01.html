@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="Felix">
+    <title>轮插图</title>
+    <link rel="stylesheet" type="text/css" href="01.css"/>
+</head>
+<body>
+    <div class="main">
+        <div class="carousel" style="left:-375px">
+            <img src="./img/5.jpg">
+            <img src="./img/1.jpg">
+            <img src="./img/2.jpg">
+            <img src="./img/3.jpg">
+            <img src="./img/4.jpg">
+            <img src="./img/5.jpg">
+            <img src="./img/1.jpg">
+        </div>
+        <div class="buts">
+            <span class="but on">1</span>
+            <span class="but">2</span>
+            <span class="but">3</span>
+            <span class="but">4</span>
+            <span class="but">5</span>
+        </div>     
+    </div>
+    <script>
+        let nowIndex = 0;
+        //显示第几张
+        let carousel = document.querySelector(".carousel");
+        carousel.addEventListener("touchstart",startF,false);
+        carousel.addEventListener("touchend",endF,false);
+        //触摸开始事件
+        let startPoint = null;
+        //开始坐标
+        function startF(e){
+            startPoint = e .touches[0];
+        }
+        //触摸结束事件
+        function endF(e){
+            let endPoint=e.changedTouches[0];
+            //计算终点与起点的差值
+            let x =endPoint.clientX - startPoint.clientX;
+            let d = 50;
+            if(Math.abs(x)>d){
+                if(x>0){
+                    console.log("右滑");
+                    //切换图片
+                    animationF(0);
+                }else{
+                    console.log("左滑");
+                    animationF(1);
+                }
+            }//切换图片
+            let flag=false,intVal;
+            function animationF(type){
+                //type 0 右
+                if(flag){
+                    return;
+                }
+                flag =true;
+                let from=parseInt(carousel.style.left);
+                //开始位置
+                console.log(from);
+                let to;
+                //结束位置
+                if (type==0){
+                    to=from+375;
+                    nowIndex--;
+                }else{
+                    to=from-375;
+                    nowIndex++;
+                }
+                //判断当前是否是最边照片
+                let preIndex = nowIndex;
+                if (nowIndex==5){
+                    nowIndex = 0;
+                }else if (nowIndex==-1){
+                    nowIndex=4;
+                }
+                toggleBut();//切换按钮样式
+                clearInterval(intVal);
+                //切换图片动画
+                intVal = setInterval (function(){
+                    if(type==0){
+                        from+=3.75;
+                    }else{
+                        from-=3.75;
+                    }
+                    carousel.style.left=form + "px";
+                    if (from ==to){
+                        //结束动画
+                        //边界图片
+                        if(preIndex == 5){
+                            carousel.style.left="-375px";
+                        }else if(preIndex ==-1){
+                            carousel.style.left="-1875px";
+                        }
+                        clearInterval(intVal);
+                        flag=false;
+                    }
+
+                },10);
+                
+            }
+            let butsArr=document.getElementsByClassName("but");
+            function toggleBut(){
+                for(let i=0;i<butsArr.length;i++){
+                    butsArr[i].className="but";//恢复
+                }
+                butsArr[nowIndex].className="but on";//设置选中按钮
+            }
+            setInterval(function(){
+                animationF(1);
+            },3000)
+        }
+    
+    </script>
+</body>
+</html>

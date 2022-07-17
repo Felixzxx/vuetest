@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 基本数据结构
+        String Number Boolean Null undefined
+        引用数据类型
+        Object */
+        /* 在js中为我们提供了三个包装类，
+        通过这三个包装类可以将基本数据类型的数据转换为对象
+        String()
+            可以将基本数据类型字符串转换为String对象
+        Number()
+            可以将基本数据类型的数字转换为Number对象
+        Boolean()
+            可以将基本数据类型的布尔值转换为Boolean对象
+         */
+        var a=123;
+        console.log(typeof a);
+        
+        var num=new Number(3);
+        console.log(typeof num);//object
+        var str=new String("hello");
+        console.log(typeof str);//object
+        var bool=new Boolean(true);
+        console.log(typeof bool);//object
+
+        /* 方法和属性只能添加给对象，不能添加给基本数据类型
+        当我们对一些基本数据类型的值去调用属性和方法时，
+            浏览器会临时使用包装类将其转化为对象，然后在调用对象的属性和方法
+            调用完后，在将其转化为基本数据类型 */
+            
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

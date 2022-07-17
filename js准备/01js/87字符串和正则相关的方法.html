@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str="12a3bo4n";
+        /* split()
+        可以将一个字符串拆分为一个数组
+        方法中可以传递一个正则表达式作为参数
+            这样方法将会根据正则表达式去拆分字符串 
+            即使不指定全局也会全部插分*/
+        var result=str.split(/[A-z]/);
+        //A-z所有大小写字母进行拆分，将字符串拆分成数组
+        console.log(result);
+
+        /* search()
+            可以将搜索字符串中是否含有指定内容 
+            只会查找第一个，即使设置全局也没用*/
+        str="hello abc hello abc"
+        result=str.search("ab");//6 输出第一次检索到的位置
+        console.log(result);
+        result=str.search("acb");//没有检索到，返回-1
+        console.log(result);
+
+        result=str.search(/a[ebf]c/);//6 
+        //可以接受一个正则表达式作为参数，然后根据正则表达式去检索字符串
+        console.log(result);
+
+        /* match()
+            可以根据正则表达式，从一个字符串将符合条件的内容提取出来 */
+        str="1a2a3c4A";
+        result=str.match(/[A-z]/);//只能提取第一个符合标准的元素，找到之后就停止搜索
+        console.log(result);
+        result=str.match(/[a-z]/ig);//全局- 可以提取一切符合标准的
+        console.log(result);
+        //match()会将匹配到的内容封装到一个数组中返回，即使只查到一个结果
+        console.log(Array.isArray(result));
+        console.log(result[0]);
+
+        /* replace()
+            可以将字符串中指定内容替换为新的内容
+            参数：
+                1，被替换的内容
+                2，新的内容 
+            默认只会替换一个*/
+        result=str.replace("a","&");
+        console.log(result);
+        result=str.replace(/a/gi,"&");//全局+忽略大小写，匹配到所有a2全部替换为&
+        console.log(result);
+        
+        result=str.replace(/[a-z]/gi,"");//全局+忽略大小写，匹配到所有a2全部替换为&
+        console.log(result);
+
+
+
+
+
+
+        
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: brown;
+            position:absolute;
+            left:0;
+        }
+        
+        .box2{
+            width: 1px;
+            height: 1000px;
+            border-left: 5px black solid;
+            position: absolute;
+            left: 500px;
+            top:0;
+
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1 =document.getElementById("box1");
+            var btn01=document.getElementById("btn01");
+            var btn02=document.getElementById("btn02");
+
+            
+            //点击按钮以后box1向右移动
+            btn01.onclick=function(){
+               move(box1,500,30);
+            };
+
+            //点击按钮以后box2向左移动
+            btn02.onclick=function(){
+                move(box1,0,10);
+            };            
+        };
+        //定义一个变量用来保存定时器标识
+        var timer
+        //尝试创建一个可以执行动画的函数
+        /* 
+        参数：
+            obj：要执行动画的对象
+            target:执行动画的目标位置
+            speed:移动的速度
+        */
+        function move(obj,target,speed){
+            clearInterval(timer);
+            //判断速度的正负
+            //如果从0->500,则speed为+
+            //如果0<-500,则speed为-
+            var current=parseInt(getStyle(obj,"left"));
+            //parseInt取整数 getStyle获取元素样式
+            if(current>target){
+                speed=-speed;
+            }
+               timer=setInterval(function(){
+                    var oldValue=parseInt(getStyle(obj,"left"));
+                    /* alert(oldValue); */
+                    var newValue=oldValue+speed;
+                    //向左移动时，需要判断newValue是否小于target
+                    if(speed<0 && newValue<target||speed>0 && newValue>target){
+                        newValue=target;
+                    }
+                    
+                    
+                    obj.style.left=newValue+"px";
+
+                    if(newValue==target){
+                        //达到目标关闭定时器
+                        clearInterval(timer);
+                    }
+                },30);//每多少秒动一下
+        }
+
+        /* 定义一个函数，用来获取指定元素的当前的样式
+            参数：
+                ojb 要获取样式的元素
+                name 要获取的样式名 */
+        function getStyle(obj,name){
+            
+                if(window.getComputedStyle){
+                    //winldow:没有window时，getComputedStyle是一个变量，会在作用域中寻找，再到全局中寻找，都没找到会返回错误
+                    //加了window后，getComputedStyle变成了变量的属性
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
+            }
+    </script>
+</head>
+<body>
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <button id="btn02">点击按钮以后box1向左移动</button>
+    <div id="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

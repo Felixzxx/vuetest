@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>坑爸爸的代码</title>
+    <script>
+        console.time("a");
+        //alert("输入金额5元内可获得r-sp，输入金额6-8元可有更大概率获得sp哦,输入金额9-10元将获得sr-sp");
+        alert("输入钱越多，获得最高奖概率越高哦");
+        var num = prompt("请输入您要投入的金额，一个小于10的整数");
+        if(num<1||num>10){
+            alert("不合法");
+        }else{
+            alert("开始");
+            var a=0;
+            if(num<=5){
+                a=Math.round(Math.random()*10);//0-10
+            }else if(num<8){
+                a=Math.round(Math.random()*8)+2;//2-10
+            }else{
+                a=Math.round(Math.random()*5)+5;//5-10
+            }
+        if(a<5){
+            alert("r");
+        }else if(a<8){
+            alert("sr");
+        }else if(a<=9){
+            alert("ssr");
+        }else{
+            alert("恭喜一等奖")
+            alert("sp");
+        }
+        }
+        console.timeEnd("a");
+        
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

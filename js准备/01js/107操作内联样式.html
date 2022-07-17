@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            background-color: brown;
+            width: 250px;
+            height:250px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var btn01=document.getElementById("btn01");
+            var btn02=document.getElementById("btn02");
+            var btn03=document.getElementById("btn03");
+            var btn04=document.getElementById("btn04");
+            var btn05=document.getElementById("btn05");
+
+            var box1=document.getElementById("box1");
+            btn01.onclick=function(){
+                //修改box1宽度
+                /* 通过js修改元素样式
+                语法:元素.style.样式名=样式值 */
+                box1.style.width="200px";
+                box1.style.height="200px";
+                //如果css的样式名中有-
+                /* 这种在js中不合法，应用驼峰命名法
+                去掉-  然后将-后字母大写
+                比如：border-top-width改为borderTopWidth
+                 */
+                box1.style.backgroundColor="yellow";
+
+                /* 我们通过style属性设置的样式都是内联样式，而内联样式有较高的优先级，
+                所以通过js修改的样式会有最高的优先级，
+                    但是如果在css中写了!important则js修改不了样式
+                    如： #box1{width:200px;!important}*/
+                
+            };
+            btn02.onclick=function(){
+                //读取box1的内联样式
+                /* 语法：元素.style.样式名 */
+                //只能读取内联样式，无法读取样式表中的样式
+                alert(box1.style.width);
+            };
+            btn03.onclick=function(){
+                //只有ie浏览器可以用
+                //读取box1的当前显示样式
+                /* 语法：元素.currentStyle.样式名 */
+                alert("a");
+                alert(box1.currentStyle.width);
+            };
+            btn04.onclick=function(){
+                //所有浏览器可以用
+                //和仅ie8以下的ie
+                //读取box1的当前显示样式
+                /* 语法：getComputedStyle(要获取样式的元素,传递一个伪元素如：null)*/
+                /* var obj=getComputedStyle(box1,null);
+                alert(obj.width); */
+                /* 该方法会返回一个对象，对象中封装了当前元素对应的样式  
+                    可以通过对象，样式名来读取样式  
+                    如果获取的样式没有设置，则会获取到真实的值，而不是默认值 
+                    比如:没有设置width，它不会获取到auto，而是一个长度 */
+                alert(getComputedStyle(box1,null).width);
+                
+            };
+            btn05.onclick=function(){
+                var w=getStyle(box1,"width");//这样ie8以下也可以用了
+                alert(w);
+                
+            };
+            
+            /* 定义一个函数，用来获取指定元素的当前的样式
+            参数：
+                ojb 要获取样式的元素
+                name 要获取的样式名 */
+            function getStyle(obj,name){
+                if(window.getComputedStyle){
+                    //winldow:没有window时，getComputedStyle是一个变量，会在作用域中寻找，再到全局中寻找，都没找到会返回错误
+                    //加了window后，getComputedStyle变成了变量的属性
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">button</button>
+    <button id="btn02">内联样式值</button>
+    <button id="btn03">当前显示样式值(仅ie)</button>
+    <button id="btn04">当前显示样式值(除了ie8)</button>
+    <button id="btn05">当前显示样式值(所有浏览器可用)</button>
+    <div id="box1"></div>
+</body>
+</html>

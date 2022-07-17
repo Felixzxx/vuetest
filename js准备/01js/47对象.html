@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //创建对象
+        /* 使用new关键字调用的函数，是构造函数constructor
+        构造函数是专门用来创建对象的函数 */
+        var obj = new Object();
+
+        /* 在对象中保存的值称为属性
+        向对象添加属性
+        语法；对象.属性名=属性值 */
+        //向obj中添加一个name属性
+        obj.name="羽生结弦";
+        obj.gender="男";
+        obj.age=27;
+        obj["奇怪的属性名"]=123;
+
+        var n = "奇怪的属性名";
+        console.log(obj[n]);
+
+
+
+        /* 读取对象中的属性值
+        语法：对象.属性名 */
+        console.log(obj.gender);
+
+
+        /* 修改对象的属性值
+        语法；对象.属性名=新值 */
+        obj.name="柚子";
+        //console.log(obj.name);
+       
+
+        /* 删除对象的属性
+        语法：delete 对象.属性名 */
+        delete obj.name;
+        console.log(obj.name);
+
+        /* 属性值
+        JS对象的属性值，可以是任意的数据结构
+        甚至也可以是个对象 */
+
+        /* in运算符
+        --通过该运算符可以检查一个对象中是否含有指定的属性
+        如果有则返回true没有则返回false
+        --语法：“属性名”in对象 */
+        console.log("name" in obj); 
+        
+        /* 
+        使用对象字面量，可以在创建对象时，直接指定对象中的属性
+        语法：{属性名：属性值，属性名：属性值} 
+        如果要使用一些特殊属性名，则必须加引号 
+        "*&^%$##" :  "a" */
+        var obj3={
+        name:"臧陶然",
+        age : 20, 
+        "*&^%$" :"a",
+        test:{name:"123"}
+        };
+        console.log(obj3);
+
+    
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /* //使用break后跟着一个label,这样break将会结束指定的循环，而不是最近的 
+        a:
+        for(var i =0; i<5 ; i++){
+            console.log("外层循环"+i)
+            for(var j=0;j<5;j++){
+                break a;
+                console.log("内层循环"+j);
+            }
+        } */
+
+        for(var i =0; i<5 ; i++){
+            console.log("外层循环"+i)
+            for(var j=0;j<5;j++){
+                if(j==1){
+                    break;
+                }
+                console.log("------"+j);
+            }
+        }
+        console.log("llllllllllllll");
+
+        for(var i =0; i<5 ; i++){
+            console.log("外层循环"+i)
+            for(var j=0;j<5;j++){
+                if(j==1){
+                    continue;
+                }
+                console.log("------"+j);
+            }
+        }
+
+
+
+
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

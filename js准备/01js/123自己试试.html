@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: darkcyan;
+            position: absolute;
+            left:100px;
+        }
+        #box2{
+            width:100px;
+            height:100px;
+            background-color:darkgoldenrod;
+            position: absolute;
+            left:200px;
+        }
+        .box9{
+            width:300px;
+            height:300px;
+            background-color:aquamarine;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+                var box1=document.getElementById("box1");
+                document.onkeydown=function(event){
+                    event=event||window.event;
+                    /* console.log(event.keyCode); */
+
+                    /* 我写的 */
+                    /* if(event.keyCode==37){
+                        box1.style.left=box1.offsetLeft-10+"px";//如果是数字则停止使用//但没成功
+                    } */
+
+                    /* 老师写的 */
+                    var speed=10;
+                    if(event.ctrlKey){
+                        /* 按下ctrl键，速度变快 */
+                        speed=50;
+                    }
+                    switch(event.keyCode){
+                        case 37:
+                        box1.style.left=box1.offsetLeft-speed+"px";
+                        break;
+                        case 39:
+                        box1.style.left=box1.offsetLeft+speed+"px";
+                        break;
+                        case 38:
+                        box1.style.top=box1.offsetTop-speed+"px";
+                        break;
+                        case 40:
+                        box1.style.top=box1.offsetTop+speed+"px";
+                        break;
+
+
+                    }
+                    box2.onkeydown=function(event){
+                        event=event||window.event;//兼容
+                        event.cancelBubble=true;//取消冒泡
+
+                }
+               
+
+            } 
+            };
+
+
+           
+    </script>
+</head>
+<body>
+    <div class="box9">
+        <div id="box1"></div>
+        <div id="box2"></div>
+    </div>
+    
+    
+</body>
+</html>

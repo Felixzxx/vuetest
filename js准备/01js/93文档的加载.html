@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //onload事件会在整个页面加载完后才触发，为window绑定一个onload事件
+        window.onload=function(){/* 
+                //获取id为btn的按钮
+            var btn=document.getElementById("btn");
+            btn.onclick=function(){
+                alert("hello"); */
+
+            var btn1=document.getElementById("btn1");
+            btn1.onclick=function(){
+                var input=document.getElementsByName("hhhh");
+                /* alert(input.length); */
+            
+                for(var i=0;i<input.length; i++){
+                    alert(input[i].type);
+                }
+            };
+        }
+        
+
+        //获取元素节点
+        /* 
+        getElementById()
+        通过id属性获取一个元素节点的对象
+        getElementsByTagName()
+        通过标签名获取一组元素节点对象
+        getElementsByName()
+        通过name属性获取一组元素节点对象
+        */
+
+
+
+    </script>
+</head>
+<body>
+    gender:
+    <input type="radio" name="hhhh" value="b"/>
+    <input type="radio" name="hhhh" value="b"/>
+    <button id="btn1">点我一下</button>
+
+
+
+
+    
+</body>
+</html>

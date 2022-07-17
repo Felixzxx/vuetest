@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            //获取body标签
+            //用数组的方式
+            var body=document.getElementsByTagName("body")[0];
+            console.log(body);
+            //在document中有一个属性body，它保存的是body的引用
+            var body1=document.body;
+            console.log(body1);
+
+            //document.documentElement保存的是html根标签
+            var html=document.documentElement;
+            console.log(html);
+
+            //代表页面中所有元素
+            var all=document.all//type的undifind
+            //var all=document.getElementsByTagName("*");  和上面那个差不多，但type的object
+            console.log(all)
+            console.log(all.length)
+            console.log(typeof all)
+
+            //根据元素的class属性值查询一组元素节点对象
+            //getElementsByClassName可以根据class属性值获取一组元素节点对象
+            var box1 =document.getElementsByClassName("box1")
+            console.log(box1.length)
+
+            //获取页面中所有div
+            var divs=document.getElementsByTagName("div")
+            console.log(divs.length)
+
+            //获取class="box1"中所有div
+            //需要一个选择器的字符串作为参数，可以根据一个css选择器来查询一个元素节点对象
+            //该方法只会返回唯一的元素，如果满足条件的元素有多个，则只会返回第一个元素
+            var div=document.querySelector(".box1 div");
+            console.log(div.innerHTML);
+            console.log(typeof div);
+
+
+            var div1=document.querySelectorAll(".box1");
+            console.log(div1);//封装到数组中返回
+            console.log(typeof div1);
+            var div1=document.querySelectorAll("#box2");
+            console.log(div1);//封装到数组中返回
+            console.log(typeof div1);
+
+
+        }
+    </script>
+</head>
+<body>
+    <div class="box1">
+        <div>我是box1中的div</div>
+        <div>我是box1中的div</div>
+    </div>
+    <div class="box1"></div>
+    <div class="box1">
+        <div>我是box1中的div2</div>
+    </div>
+    
+</body>
+</htm

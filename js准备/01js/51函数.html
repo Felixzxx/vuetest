@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /* 函数function
+           -函数也是一个对象
+           -函数中可以封装一些功能（代码），在需要时可以执行这些功能代码
+           -函数中可以保存一些代码在需要时调用
+           -使用typeof检查一个函数对象时，会返回function */
+        
+        //创建一个函数对象
+        //可以将要封装的代码以字符串的形式传递给构造函数
+        /* var fun=new Function();
+
+        console.log(fun); */
+
+        function fun1(){
+            console.log("这是我第二个函数");
+        }
+        fun1();
+
+        var fun2 = function(){
+            console.log("第三个函数");
+        }
+        fun2();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

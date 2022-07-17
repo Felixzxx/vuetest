@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+<div style="margin-left: 23px;">x1</div>
+<div style="margin-left: 23px;">x2</div>
+sddddddddd
+
+</body>
+<script>
+let xhr = new XMLHttpRequest();
+// 创建 Http 请求
+xhr.open("POST", "http://161.117.188.57:8082/server", true);
+// 设置状态监听函数
+xhr.onreadystatechange = function() {
+  if (this.readyState !== 4) return;
+  // 当请求成功时
+  if (this.status === 200) {
+    console.log("= = success: ", this.response);
+  } else {
+    console.error(this.statusText);
+  }
+};
+// 设置请求失败时的监听函数
+xhr.onerror = function() {
+  console.error(this.statusText);
+};
+// 设置请求头信息
+xhr.responseType = "json";
+xhr.setRequestHeader("Accept", "application/json");
+// 发送 Http 请求
+let obj = {state: "随便写"}
+// xhr.send(null)
+xhr.send(JSON.stringify(obj));
+
+</script>
+
+</html>

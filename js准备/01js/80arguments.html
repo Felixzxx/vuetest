@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 调用函数时，浏览器都会传递进一两个隐含的参数
+        1，函数的上下文对象this
+        2，封装实参的对象arguments
+            arguments是一个类数组对象
+            在调用函数时，我们所传递的实参都会封装到arguments中 */
+        function fun(){
+            //console.log(arguments instanceof Array);//false
+            //console.log(Array.isArray(arguments));  //false 
+            console.log(arguments.length);  //arguments.length可以用来获取实参的长度     
+            console.log(arguments[0]);//表示第一个实参。。。
+            console.log(arguments.callee);//callee属性对应一个函数对象，就是当前正在指向的函数的对象
+        }fun(1,2,312);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

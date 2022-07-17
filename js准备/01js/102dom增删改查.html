@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            //创建一个“广州”节点，添加到city下
+            myClick("btn1",function(){
+
+                //创建li元素节点
+
+                //document.createElement()
+                    //可以用于创建一个元素节点对象
+                    //他需要一个标签名作为参数，将会根据该标签名创建元素节点对象
+                    //并将创建好的对象作为返回值返回
+                var li=document.createElement("li");
+                
+
+                //document.createTextNode()
+                    //用来创建一个文本节点对象
+                    //需要一个文本内容作为参数，将会根据该内容创建文本节点，并将新的节点返回
+                    //
+                var gzText=document.createTextNode("广州");
+
+                //将gzText设置li的子节点
+                //appendChild()
+                    //向一个父节点中添加一个新的子节点
+                    //用法：父节点.appendChild(子节点);
+                li.appendChild(gzText);
+
+                //获取id为city的节点
+                var city=document.getElementById("city");
+                //将广州添加到city下
+                city.appendChild(li);
+
+            });
+            //创建一个“广州”节点，添加到bj前
+            myClick("btn2",function(){
+                //创建一个广州
+                var li =document.createElement("li");
+                var gzText=document.createTextNode("广州");
+                li.appendChild(gzText);
+                //获取id为bj的节点
+                var bj=document.getElementById("bj");
+                //获取city
+                var city=document.getElementById("city");
+                //insertBefore()
+                    //可以在指定的子节点前插入新的子节点
+                    /* 语法：
+                        父节点,insertBefore(新节点，老节点);
+                         */
+                city.insertBefore(li,bj);
+            });
+
+            //创建一个“广州”节点，替换rb节点
+            myClick("btn3",function(){
+                //创建一个广州
+                var li =document.createElement("li");
+                var gzText=document.createTextNode("广州");
+                li.appendChild(gzText);
+                //获取id为rb的节点
+                var rb=document.getElementById("rb");
+                //获取city
+                var city=document.getElementById("city");
+                //replaceChild()
+                    //替换
+                    /* 语法：
+                        父节点,replaceChile(新节点，老节点);
+                         */
+                city.replaceChild(li,rb);
+            });
+
+            //删除rb节点
+            myClick("btn4",function(){
+                
+                //获取id为bj的节点
+                var rb=document.getElementById("rb");
+                //获取city
+                var city=document.getElementById("city");
+                //removeChild()
+                    //删除
+                    /* 语法：
+                        父节点,removeChild(新节点，老节点);
+                         */
+                city.removeChild(rb);
+            });
+
+            myClick("btn5",function(){
+                
+                //获取id为bj的节点
+                var rb=document.getElementById("rb");
+                
+                //子节点.parentNode.removeChild(子节点);
+                rb.parentNode.removeChild(rb);
+            });
+
+            //读取bj内的HTML代码
+            myClick("btn6",function(){
+                
+                //获取city
+                var city=document.getElementById("city");
+                alert(city.innerHTML)
+            });
+
+            //改内容
+            myClick("btn7",function(){
+                
+                //获取city
+                var rb=document.getElementById("rb");
+                rb.innerHTML="中国";
+            });
+
+            //添加一个li，会更改全部代码
+            myClick("btn8",function(){
+                //获取city
+                var city=document.getElementById("city");
+                city.innerHTML+="<li>中国</li>";
+            });
+            //添加一个li 不会更改全部代码（更好）
+            myClick("btn8",function(){
+                var li=document.createElement("li");
+                li.innerHTML="广州";
+                city.appendChild(li);
+            });
+
+
+
+
+            function myClick(idStr,fun){
+                var btn=document.getElementById(idStr);
+                btn.onclick=fun;
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li id="sh">上海</li>
+        <li>广东</li>
+        <li id="rb">小日本</li>
+    </ul>
+    <input type="text" name="name" id="username" value=""><br>
+    <button id="btn1">btn1</button>
+    <button id="btn2">btn2</button>
+    <button id="btn3">btn3</button>
+    <button id="btn4">btn4</button>
+    <button id="btn5">btn5</button>
+    <button id="btn6">btn6</button>
+    <button id="btn7">btn7</button>
+    <button id="btn8">btn8</button>
+    
+</body>
+</html>

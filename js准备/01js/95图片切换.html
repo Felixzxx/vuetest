@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width:400px;
+            margin:50px;
+            padding: 10px;
+            background-color: aqua;
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+            //点击按钮切换图片
+            //获取两个按钮
+            var prev=document.getElementById("prev");
+            var next=document.getElementById("next");
+
+            //获取img标签
+            var img=document.getElementsByTagName("img")[0];
+            var imgArr=["img/wangjiaer/01.jpg","img/wangjiaer/02.jpg","img/wangjiaer/03.jpg","img/wangjiaer/04.jpg"];
+
+            //创建一个变量来保存当前正在显示的图片索引
+            var index=0;
+
+            //获取id为info的元素
+            var info=document.getElementById("info");
+            
+            //设置提示文字
+            info.innerHTML="共"+imgArr.length+"张图片，第"+(index+1)+" 张图片" ;
+
+
+            prev.onclick=function(){
+                index--;
+                if(index<0){
+                    index=imgArr.length-1
+                }
+                img.src=imgArr[index];
+                info.innerHTML="共"+imgArr.length+"张图片，第"+(index+1)+" 张图片" ;
+
+            }
+            next.onclick=function(){
+                index++;
+                if(index>imgArr.length-1){
+                    index=0
+                }
+                img.src=imgArr[index];
+                info.innerHTML="共"+imgArr.length+"张图片，第"+(index+1)+" 张图片" ;
+
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div id="outer">
+        <p id="info"></p>
+        <img src="img/wangjiaer/01.jpg">
+
+       
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+</html>

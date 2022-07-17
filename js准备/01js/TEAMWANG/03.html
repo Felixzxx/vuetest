@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百叶窗</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .container{
+            margin:100px auto;
+            border:none;
+            width:700px;
+            height:375px;
+            overflow: hidden;/* 剪辑溢出内容 */
+        }
+        .container ul{
+            display: flex;/*  */
+        }
+        .container li{
+            width:120px;
+            height:375px;
+            list-style: none;
+            border-left:1px solid black;
+            box-shadow: 0 0 25px rgb(0, 0, 0);
+            transition: all 0.5s;/*  */
+        }
+        .container li img{
+            display:block;/*  */
+            width:500px;
+            height:375px;
+        }
+        .container ul:hover li{
+            width:45px;
+        }
+        .container ul li:hover{
+            width:500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li><img src="image/08.jpg" alt=""></li>
+            <li><img src="image/09.jpg" alt=""></li>
+            <li><img src="image/10.jpg" alt=""></li>
+            <li><img src="image/11.jpg" alt=""></li>
+            <li><img src="image/12.jpg" alt=""></li>
+        </ul>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: aqua;
+            padding:10px;
+            border: 5px solid rgb(88, 114, 226);
+            margin: 8px;
+        }
+        #box4{
+            width:200px;
+            height: 300px;
+            background-color: blue;
+            overflow: auto;/* 进度条 */
+            /* overflow: hidden; 隐藏溢出  */
+        }
+        #box5{
+            width:400px;
+            height:400px;
+            background: linear-gradient(#c6c8ce,#1a64d3);;
+
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1=document.getElementById("box1");
+            var btn01=document.getElementById("btn01");
+            var box4=document.getElementById("box4");
+            var box4=document.getElementById("box4");
+            btn01.onclick=function(){
+                /*  clientWidth获取元素可见宽度,数字不带px，返回的是内容区和内边距*/
+                alert(box1.clientWidth);
+                /* offsetWeight
+                offsetHeight
+                获取元素的整个的宽度和高度，包括内容区，内边距，和边框 */
+                /* offsetParent可以用来获取当前元素的定位父元素 
+                会获取到离当前元素最近的开启了定位的祖先元素
+                如果所有祖先元素都没有开启定位，则会返回body*/
+                var op=box1.offsetParent;
+                alert(op.id);
+
+                /* offsetLeft当前元素相对于其定位父元素的水平偏移量
+                offsetTop当前元素相对于其定位父元素的垂直偏移量 */
+                alert(box1.offsetLeft);  
+                alert("box4可见高度="+box4.clientHeight);          
+                alert("box4滚动高度="+box4.scrollHeight);          
+                alert("box4元素左边缘与视图之间的距离(水平滚动条滚动的距离)="+box4.scrollLeft);          
+                alert("box4元素上边缘与视图之间的距离(垂直滚动条滚动的距离)="+box4.scrollTop);          
+                /* "水平滚动条滚到底="+box4.scrollwidth-box4.scrollleft==clientwidth  */        
+            };
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">button</button>
+    <br>
+    <div id="box4">
+        <div id="box5"></div>
+    </div>
+    <div id="box2" style="position: absolute;">
+        <div id="box1"></div>
+    </div>
+</body>
+</html>

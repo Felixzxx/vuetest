@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arrayVar = [1,2,3,4,5]
+        let x = document.getElementsByTagName("div");
+        // x就是一个类数组，下面一行是将类数组转换成数组，先不生效，试试效果；再解除注释看看
+        x = Array.prototype.slice.call(x)
+        
+        console.log("= = a1", x[0])
+        console.log("= = a2", arrayVar[0])
+        
+        for (let item of x) {
+          console.log("= = a3", item)
+        }
+        
+        arrayVar.push(6)
+        for (let item of arrayVar) {
+          console.log("= = a4", item)
+        }
+        x.push(6)
+        for (let item of x) {
+          console.log("= = a5", item)
+        }
+        console.log(typeof(arrayVar))
+        console.log(typeof(x))
+        
+        </script>
+</head>
+<body>
+    <div style="margin-left: 23px;">x1</div>
+<div style="margin-left: 23px;">x2</div>
+</body>
+</html>

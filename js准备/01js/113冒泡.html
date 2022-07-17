@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width:200px;
+            height: 200px;
+            background-color: rgb(35, 73, 198);
+        }
+        #s1{
+            background-color: rgb(255, 183, 3);
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            /* 事件的冒泡（Bubble）
+                所谓的冒泡，指的就是事件的向上传导，
+                当后代的事件被触发时，其祖先元素的相同事件也会被触发 */
+            /* 为s1绑定一个单击响应函数 */
+            var s1=document.getElementById("s1");
+            s1.onclick=function(event){
+            event=event||window.event;
+                alert("span");
+                event.cancelBubble=true;//取消冒泡
+            };
+            var box1=document.getElementById("box1");
+            box1.onclick=function(){
+                alert("div");
+            };
+            document.body.onclick=function(){
+                alert("body");
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box1">
+        我是box1
+        <span id="s1">我是span</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //获取元素节点的子节点
+        /* getElementsByTagName()
+            -方法，返回当前节点的指定标签名后代节点
+        childNodes
+            -属性，表示当前节点的所有子节点
+        firstChild
+            -属性，表示当前节点的第一个子节点
+        lastChild
+            -属性，表示当前节点的最后一个节点 */
+        
+        
+            //children属性可以获取当前元素中所有子元素
+        
+        window.onload=function () {
+            var btn1=document.getElementById("btn1");
+            btn1.onclick=function(){
+                var city=document.getElementById("city");
+                //查找id为city的元素下的li节点
+                var lis=city.getElementsByTagName("li");
+                for(var i=0;i<lis.length;i++){
+                    alert(lis[i].innerHTML);
+                }
+            };
+
+            var btn2=document.getElementById("btn2");
+            btn2.onclick=function(){
+                //获取id为city的节点
+                var city=document.getElementById("city");
+                //返回#city的所有子节点
+                /* childNode属性会获取包括文本在内的所有节点
+                在dom标签内空白也会被当成文本节点
+                但ie8以下的不会将空白当成文本节点 */
+                var childNodes=city.childNodes;
+                alert(childNodes.length);
+                //children属性可以获取当前元素中所有子元素
+                var children=city.children;
+                alert(children.length);
+            };
+
+            var btn3=document.getElementById("btn3");
+            btn3.onclick=function(){
+                //获取id为city的节点
+                var city=document.getElementById("city");
+                var firstChild=city.firstChild;
+                alert(firstChild);
+                alert(firstChild.innerHTML);//undifinde因为包括空格
+
+                var firstElementChild=city.firstElementChild;//不知持ie8及以下
+                alert(firstElementChild.innerHTML);
+
+            };
+
+            var btn4=document.getElementById("btn4");
+            btn4.onclick=function(){
+                //获取id为city的节点
+                var city=document.getElementById("city");
+                var lastChild=city.lastChild;
+                alert(lastChild.innerHTML);
+                
+            };
+
+            
+        }
+    </script>
+</head>
+<body>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>广东</li>
+    </ul>
+    <button id="btn1">btn1</button>
+    <button id="btn2">btn2</button>
+    <button id="btn3">btn3</button>
+    <button id="btn4">btn4</button>
+</body>
+</html>

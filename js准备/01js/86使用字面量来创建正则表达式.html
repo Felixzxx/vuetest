@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 使用字面量来创建正则表达式
+            语法：var 变量 =/正则表达式/匹配模式
+            使用字面量的方式创建更加简单
+            使用构造函数创建更为灵活 */
+
+            //检查是否含有a或b
+            reg=/a|b/i;
+            console.log(typeof reg);
+            console.log(reg.test("Abc"));
+
+            /* 
+            []里的内容也是或的关系
+            [ab]==a|b 
+            */
+            reg=/[abshjkl]/
+            console.log(reg.test("fgbh"));
+            /* 
+            [a-z]任意小写字母
+            [A-Z]任意大写字母 
+            */
+           reg=/[A-Z]/;
+           console.log(reg.test("fgbh"));
+           reg=/[a-z]/
+           console.log(reg.test("fgbh"));
+
+           //检查一个字符串中是否含有abc或adc或aec
+           reg=/a[bde]c/
+           console.log(reg.test("aec"));
+
+           /* 
+           [^]除了
+           */
+          reg=/[^ab]/;
+          console.log(reg.test("ac"));
+          reg=/[^0-9]/;
+          console.log(reg.test("10ac"));
+
+
+
+
+            
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

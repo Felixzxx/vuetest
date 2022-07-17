@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //创建一个字符串
+        var str="hello world";
+        //在底层字符串是以字符数组的形式保存的
+        console.log(str[4]);
+        console.log(str.length);
+
+        /* charAt()
+            可以返回字符串中指定位置的字符
+            根据索引获取指定的字符 */
+        var result=str.charAt(4);
+        console.log(result);
+        /* var result=str[6];
+        console.log(result); */
+
+        /* charCodeAt()
+            获取指定位置字符的字符编码（unicode编码） */
+        result=str.charCodeAt(4);
+        console.log(result);
+
+        /* String.fromCharCode()
+            可以根据字符编码去获取字符 */
+        result=String.fromCharCode(12344);
+        console.log(result);
+
+        /* concat()
+            可以用来连接两个或多个字符串 */
+        result=str.concat("你好","js");
+        console.log("str="+result);
+
+        /* indexOf()
+            检索一个字符串中是否含有指定内容
+            如果字符串中含有该内容，则会返回其第一次出现的索引
+                如果没有找到指定的内容，则返回-1
+            可以指定一个第二个参数，指定开始查找的位置 */
+        result=str.indexOf("7");
+        console.log(result);
+        result=str.indexOf("o");
+        console.log(result);
+        result=str.indexOf("o",2);
+        console.log(result);
+
+        /* lastIndexOf();
+        用法和indexOf()一样，
+            不同的是：indexOf是从前往后找，
+            lastIndexOf是从后往前找,返回索引序号，也可以指定开始位置 */
+        result=str.lastIndexOf("l");
+        console.log(result);
+        result=str.lastIndexOf("l",2);
+        console.log(result);
+
+        /* slice()
+            可以从字符串中截取指定的内容
+            不会影响原字符串，而是将截取到的内容返回
+            如果省略第二个参数则会截取到后面所有 */
+        str="bsdvuzfhauf"
+        result=str.slice(0,2);//bs
+        console.log(result);
+        result=str.slice(2);//dvuzfhauf
+        console.log(result);
+        result=str.slice(2,-5);//dvuz
+        console.log(result);
+
+        /* substring()
+            可以用来截取一个字符串，和slice()类似 */
+        result=str.substring(1,-1);//传递负值会默认为0
+        console.log(result);
+        result=str.substring(1,5);//sdvu
+        console.log(result);
+        result=str.substring(5,1);//sdvu//如果第二个参数小于第一个，会自动调换位置
+        console.log(result);
+        
+        /* substr()
+            截取字符串 */
+        str.substr(3,2);
+        console.log(str);//d对原数组没影响
+        result=str.substr(3,2);//vu
+        console.log(result);
+
+        /* split()
+            可以将一个字符产拆分成一个数组
+            参数：需要一个字符串作为参数，将会根据字符串去拆分数组 
+            如果传递一个空串作为参数，则会将每个字符都拆分一遍*/
+        str="abc,bcd,efk,scd";
+        result=str.split(",");
+        console.log(result[2]);
+        console.log(result.length);
+        result=str.split("");
+        console.log(result);
+
+        /* toUpperCase()
+            将一个字符串转化为大写并返回 */
+        str="abc,bcd,efk,scd";
+        result=str.toUpperCase();
+        console.log(result);
+
+        /* toLowerCase();
+            转化为小写 */
+        str="ABC,BCD,EFK,SCD";
+        result=str.toLowerCase();
+        console.log(result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

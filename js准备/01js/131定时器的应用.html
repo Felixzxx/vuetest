@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width:100px;
+            height:100px;
+            background-color: brown;
+            position:absolute;
+            left:0;
+        }
+        .box2{
+            width: 1px;
+            height: 1000px;
+            border-left: 5px black solid;
+            position: absolute;
+            left: 500px;
+            top:0;
+
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1 =document.getElementById("box1");
+            var btn01=document.getElementById("btn01");
+            var timer
+            var speed=10;
+            btn01.onclick=function(){
+                /* setInterval(function(){
+                    box1.style.left=box1.offsetLeft+speed+"px";
+                },90); */
+                clearInterval(timer);
+               timer=setInterval(function(){
+
+                    var oldValue=parseInt(getStyle(box1,"left"));
+                    /* alert(oldValue); */
+                    var newValue=oldValue+11;
+                    if(newValue>500){
+                        newValue=500;
+                    }
+                    
+                    box1.style.left=newValue+"px";
+
+                    if(newValue==500){
+                        //达到目标关闭定时器
+                        clearInterval(timer);
+                    }
+                },30);
+            };
+            
+            
+            /* 定义一个函数，用来获取指定元素的当前的样式
+            参数：
+                ojb 要获取样式的元素
+                name 要获取的样式名 */
+                function getStyle(obj,name){
+                if(window.getComputedStyle){
+                    //winldow:没有window时，getComputedStyle是一个变量，会在作用域中寻找，再到全局中寻找，都没找到会返回错误
+                    //加了window后，getComputedStyle变成了变量的属性
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <div id="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

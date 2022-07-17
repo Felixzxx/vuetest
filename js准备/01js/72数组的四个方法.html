@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /* push()----增
+        该方法可以向数组末尾添加一个或多个元素，并返回数组的新的长度
+            可以将要添加的元素作为方法的参数传递
+            这样这些元素将会自动添加到数组的末尾 */
+        var arr=[1,2,3];
+        arr.push(4,5);
+        console.log(arr);
+        //该方法会将数组新的长度作为返回值返回
+        var result=arr.push(7);//表示被删除的长度是
+        console.log(arr);
+        console.log("result="+result);
+
+
+        /* pop()----删
+            该方法可以删除数组的最后一个元素,并将被删除的元素作为返回值返回 */
+            arr.pop();
+            console.log(arr);
+
+            result=arr.pop();//表示删除的元素是
+            console.log(arr);
+            console.log("result="+result);
+
+        /* unshift()--在开头加
+            向数组开头添加一个或多个元素，并返回新的数组长度 */            
+            arr.unshift(8,9);
+            console.log(arr);
+
+        /* shift()--在开头删一个元素
+            可以删除数组的第一个元素，并将元素作为返回值返回 */
+            result=arr.shift();
+            console.log(arr);
+            console.log("result="+result);
+
+
+
+
+        //增返回的是长度，删返回的是元素
+
+
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

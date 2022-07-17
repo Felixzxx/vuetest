@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        window.onload=function(){
+            var btn=document.getElementById("btn");
+            btn.onclick=function(){
+                //history.back();   //后退到上一个页面  <<<
+                //history.forward();//前进到下一个页面  >>>
+                history.go(1);
+                /* go()
+                    可以用来跳转到指定的页面
+                    他需要一个整数作为参数
+                        1：表示向前跳转一个页面 相当于forward()
+                        2: 表示向前跳转两个页面
+                        -1：表示向后跳转一个页面
+                */
+
+            };
+        };
+    </script>
+</head>
+<body>
+    <h1>第二个页面history</h1>
+    <a href="125_1History.html"> 去第一个页面</a>
+    <button id="btn">返回</button>
+</body>
+</html>

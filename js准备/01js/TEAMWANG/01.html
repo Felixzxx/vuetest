@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王嘉尔TEAMWANG</title>
+     <style>
+        body{
+            background-color: rgb(37, 37, 37);
+        }
+        header{
+            background-color: rgb(172, 172, 172);
+            height:45px;
+            margin:10px 
+        }
+        header p.top{
+            font-size: 20px;
+            font-family: fantasy;
+            padding-top: 0px ;
+            margin: 10px;
+            letter-spacing: 1px; /* 文字间距 */
+            position: absolute;
+        }
+        .daohang{
+            list-style-type:none;
+            margin: 0;
+            padding: 0;
+            float: right;
+            
+        }
+
+        .daohang li{
+            float: left; 
+            margin:10px 20px 0px 20px; 
+            width: 40px;
+        }
+        .daohang a{
+            font-size: 17px;
+            text-decoration: none;
+            color: black;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .daohang a:hover{
+            color: rgb(107, 107, 107);
+            font-size: 20px;
+        }
+        #main{
+            margin: 10px;
+        }
+    
+        .P1{
+            position: absolute;
+            top:80px;
+            left: 100px;
+            color: rgb(108, 109, 110);
+            font-size: 80px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            opacity:0.85;
+        }
+        
+
+        @font-face {
+	    font-family: "Emblema One";
+	    src: url("./EmblemaOne-Regular.woff"), 
+	     url("./EmblemaOne-Regular.ttf"); }
+        *{
+            margin:0;
+            padding: 0;
+        }
+        /* 设置outer的样式 */
+        #outer{
+            width:1500px;
+            height:680px;
+            margin: 10px auto;
+            background-color: rgb(207, 152, 152);
+            padding:  0;
+            /* 开启相对定位 */
+            position: relative;
+            /* 裁剪溢出的内容 */
+            overflow: hidden;
+        }
+        /* 设置imgList */
+        #imgList{
+            /* 去除项目符号 */
+            list-style: none;
+            
+            /* 开启绝对定位 */
+            position:absolute;
+            /* 设置偏移量 */
+            /* left: -410px; */
+        }
+       
+
+        /* 设置图片的浮动 */
+        #imgList li{
+            float: left;
+        }
+
+
+        /* 设置导航按钮 */
+        #navDiv{
+            /* 开启绝对定位 */
+            position: absolute;
+            bottom: 50px; 
+            border-bottom: 5px solid white;       
+        }
+
+
+        /* 导航a元素的排列 */
+        #navDiv a{
+            /* 设置超链接浮动 */
+            float:left;/* 浮动之后内联元素变块元素 */
+            font-size: larger;
+            margin: 0px 50px 20px 0px;
+            font-family:"Emblema One", sans-serif;
+            color: aliceblue;
+
+            /* 设置透明度 */
+            opacity:0.85;
+            filter:alpha(opacity=50);/* 兼容IE8透明 */
+            text-decoration: none;
+        }
+        #navDiv a:hover{
+            color:black;
+            ;
+        }
+
+        #second{
+            width:1500px;
+            height:500px;
+            background-color: rgb(172, 172, 172);
+
+        }
+        /* div.border{
+            position: absolute;
+            left: 130px;
+            top:845px;
+            width:560px;
+            height:300px;
+            background-color: rgb(108, 109, 110,0);
+            border: 5px solid black;
+
+        } */
+        .video01{
+            position: absolute;
+            top:870px;
+            left: 200px;
+            outline: 10px;
+            outline-color: rgb(148, 148, 148);
+            outline-style: inset;
+        }
+        /* .video01:hover{
+            box-shadow: 0px 8px 16px 0px rgb(0, 0, 0,0.72);/* 阴影 */
+        #text01{
+            
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            padding-left: 800px;
+            padding-top: 150px;
+            line-height:50px;   
+        }
+        #second p::first-line{
+            font-size: 90px;
+        }
+
+        .container{
+            margin:100px auto;
+            border:none;
+            width:700px;
+            height:375px;
+            overflow: hidden;/* 剪辑溢出内容 */
+        }
+        .container ul{
+            display: flex;/*弹性布局  */
+        }
+        .container li{
+            width:80px;
+            height:375px;
+            list-style: none;
+            border-left:1px solid black;
+            box-shadow: 0 0 25px rgb(0, 0, 0);
+            transition: all 0.5s;/*  */
+        }
+        .container li img{
+            display:block;/*  */
+            width:500px;
+            height:375px;
+        }
+        .container ul:hover li{
+            width:45px;
+        }
+        .container ul li:hover{
+            width:450px;
+        }
+        .third{
+            width:1500px;
+            height:190px;
+            background:url(image/13.jpg);
+        }
+        .third p{
+            color: aliceblue;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-left: 700px;
+            padding-top: 80px;
+            font-size: 40px;
+        }
+        
+        
+    </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            //imgList.style.width=1500*3+"px";
+
+            /* 设置导航按钮居中 */
+            //获取navDiv
+            var navDiv=document.getElementById("navDiv");
+            //获取outer
+            var outer=document.getElementById("outer");
+            //设置navDiv left的值
+            navDiv.style.left=(outer.offsetWidth-navDiv.offsetWidth)/2 + "px";/* 获取元素宽度 */
+
+
+            //默认显示图片的索引
+            var index=0;
+            //获取所有a
+            var allA=[document.getElementById("a1"),document.getElementById("a2"),document.getElementById("a3")];
+            //设置默认选中的效果
+            allA[index].style.color="black"; 
+
+            /* 点击索引换指定图片 */
+            for(var i=0; i<=3; i++){
+                    //为每一个超链接都添加一个num属性
+                allA[i].num=i;
+                    //为超链接绑定单击相应函数
+                allA[i].onclick=function(){
+                    //获取点击超链接的索引
+                    index=this.num;
+                    //切换图片
+                    imgList.style.left=index*(-1500)+"px";
+                    setA();
+                };
+            
+            }
+            function setA(){
+                //遍历所有a，并将他们的背景设置为空，这样就会用css中的样式
+                for(var i=0;i<allA.length;i++){
+                    allA[i].style.color="";                    
+                }
+                //将选中的变为黑色
+                allA[index].style.color="black";
+            };
+        };
+
+
+    </script> 
+    
+
+      
+
+
+
+    </style>
+    
+</head>
+<body>
+    <header class="header">
+        <p class="top">TEANWANG</p>
+        <ul class="daohang">
+            <li><a href="01.html">home</a></li>
+            <li><a href="music.html">muisc</a></li>
+            <li><a href="team.html">team</a></li>
+            <li><a href="photo.html">photo</a></li>
+            <li><a href="05.html">home</a></li>
+        </ul>
+    </header>
+
+
+    <section id="main">
+        <div id="outer">
+            <!-- 创建一个ul，用来放置图片 -->
+            
+            <ul id="imgList">
+                <li>
+                    <img  id="img1" src="image/05.jpg">
+                </li>
+                <li>
+                    <img  id="img2" src="image/06.jpg">
+                </li>
+                <li>
+                    <img  id="img3" src="image/07.jpg">
+                </li>
+            </ul>
+            <p class="P1">JACKSON<br>WANG</p>
+                  
+            <!-- 创建导航按钮 -->
+            <div id="navDiv">             
+                <a id="a1" href="javascript:;">necklace</a>
+                <a id="a2" href="javascript:;">glasses</a>
+                <a id="a3" href="javascript:;">blood</a>
+            </div>
+        </div>
+
+
+        <div id="second">
+            <div class="border"></div>
+            <video class="video01" loop autoplay  width="560">
+                <source src="video/video01.mp4">
+            </video>
+            <p id="text01">
+                <b>Jackson Wang</b><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;王嘉尔，1994年3月28日出生于香港。<br>中国香港流行乐男歌手，音乐人，主持人
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MV导演，TEAMWANG主理人。主设计师创意总监。
+            </p>
+        </div>
+        <div class="container">
+            <ul>
+                <li><img src="image/08.jpg" alt=""></li>
+                <li><img src="image/11.jpg" alt=""></li>
+                <li><img src="image/10.jpg" alt=""></li>
+                <li><img src="image/11.jpg" alt=""></li>
+                <li><img src="image/09.jpg" alt=""></li>
+            </ul>
+    
+        </div>
+        <div class="third">
+            <p>JACKSON WANG</p>
+        </div>
+        
+        
+       
+
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+body,html{
+    width:100%;
+    height:100%;
+    background-image:linear-gradient(120deg,#fdfbfb 0%,#ebedee 100%);
+}
+*{
+    margin:0;
+    padding:0;
+}
+.main{
+    position:relative; /* 定位：相对定位*/
+    width:375px;
+    margin:0 auto;
+    height:240px;
+    overflow:hidden;
+}
+.carousel{
+    position:absolute;
+    width:2650px;
+    height:240;
+}
+img{
+    width:375;
+    float:left;
+    height:240px;
+}
+.buts{
+    position: absolute;
+    left:50%;
+    bottom:20px;
+    width:auto;
+    height:10px;
+    z-index:2;          /*定位：堆叠顺序，数字越大越靠前*/
+    transform: translateX(-50%);  /*修改空间坐标：移动 */
+}
+.buts .but{
+    margin-left:5px;
+    width:20px;
+    height:20px;
+    border-radius: 50%; /*边境弯曲多少形状：圆形*/
+    background:#000;
+    display: inline-block;  /*使列表横过来*/
+    float: left;
+    color:#fff;
+    font-size:10px;
+    line-height: 20px;
+    text-align:center;
+}
+.buts .but.on{
+    background: #c178;;
+
+}

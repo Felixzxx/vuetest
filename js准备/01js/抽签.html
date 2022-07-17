@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var h2 =document.getElementById("chou");
+            //保存当前图片的索引
+            var Arr=["商海龙刷碗","臧陶然刷碗","臧颖刷碗"];
+
+            var i=0;
+            var btn1 =document.getElementById("btn1");
+            var btn2 =document.getElementById("btn2");
+            var timer;
+            btn1.onclick=function(){
+                clearInterval(timer);
+
+                timer=setInterval(function(){
+                    i++;
+                    /* if(i>=imgArr.length){
+                        i=0;
+                    } */
+
+                    
+                   i %=Arr.length;
+                    h2.innerHTML=Arr[i]; 
+    
+                },80);
+            };
+            btn2.onclick=function(){
+                clearInterval(timer);
+            };
+        }
+    </script>
+</head>
+<body>
+    <h1>抽签</h1>
+    <h2 id="chou">商海龙洗碗</h2>
+    <button id="btn1">begin</button>
+    <button id="btn2">over</button>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="app">
+			<anchored-heading :level="3">
+				<a name="hello-world" href="#hello-world">
+    			    Hello world!
+  			    </a>
+			</anchored-heading>
+		</div>
+		
+		<script src="https://unpkg.com/vue@next"></script>
+		<script>
+			const app = Vue.createApp({})
+            app.component('anchored-heading', {
+                render() {
+                    const { h } = Vue
+
+                    return h(
+                        'h' + this.level, // tag name
+                        {style: {backgroundColor: "red"}}, // props/attributes
+                        this.$slots.default(), // array of children
+               
+                    )
+                    // <h3>dddd</div>
+                },
+                props: {
+                    level: {
+                        type: Number,
+                        required: true
+                    }
+                }
+            })
+            app.mount('#app')
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>单行文本输入框</title>
+	</head>
+	<body>
+		<div id="app">
+     <!--  <input type="text" v-model="message">  --><!-- 用v-model不能用value属性 -->
+      <p><input type="text" v-model.lazy.trim="message"></p><!--lazy点击屏幕会响应  trim无视空格  -->
+      <p>message: {{ message }}</p>
+      <p><input type="text" v-model.number="num"></p><!-- 输入的类型都是字符串类型，.number转成数字类型 -->
+		</div>
+	
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+      const vm = Vue.createApp({
+        data(){
+          return {
+            message: 'Java无难事',
+            num: 0
+          }
+        },
+        watch: {
+          message(){
+            console.log(this.message)
+          },
+          num(){
+            console.log(5 === this.num)
+            console.log(typeof this.num)
+          }
+        }
+        
+      }).mount('#app')
+    </script>
+	</body>
+</html>
+

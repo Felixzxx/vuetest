@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>计算属性</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>原始字符串：{{ message }}</p>
+      <!--根据指定字符进行切割。
+        reverse函数就是将数组中的元素颠倒过来。
+         join函数是将数组中的所有元素放入字符串中。 -->
+      <p>反转后的字符串：{{ message.split('').reverse().join('') }}</p>
+      <p>计算后的反转字符串：{{ reversedMessage }}</p>
+		</div>
+	
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+      const vm = Vue.createApp({
+        data(){
+          return {
+            message: 'Hello Vue.js'
+          }
+        },
+        computed: {
+          reversedMessage(){
+            /* 计算属性的getter */
+            return this.message.split('').reverse().join('');
+          }
+        }
+      }).mount('#app')
+    </script>
+	</body>
+</html>
+

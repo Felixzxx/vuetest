@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>全局注册与本地注册组件</title>
+	</head>
+	<body>
+		<div id="app">
+      <button-counter></button-counter>
+		</div>
+	
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+    /* 全局注册 
+      参数：-组件名字
+            -函数对象*/
+     /*  const app = Vue.createApp({})
+      
+      app.component('ButtonCounter', {  //
+        data(){
+          return {
+            count: 0
+          }
+        },
+        template: '<button @click="count++">点我 {{ count }}次</button>'
+      }) */
+
+      
+      /* 本地注册 */
+      const app = Vue.createApp({
+        components: {  //
+          ButtonCounter: {  //
+            data(){
+              return {
+                count: 0
+              }
+            },
+            template: '<button @click="count++">点我 {{ count }}次</button>'
+          }
+        }
+      })
+      app.mount('#app')
+    </script>
+	</body>
+</html>
+

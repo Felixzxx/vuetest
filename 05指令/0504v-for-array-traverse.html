@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- v-for指令通过循环的方式来渲染一个列表，循环的对象可以是数组，也可以是一个js对象
+    表达式的语法形式为item in item，其中item是源数据数组，而item则是被迭代的数组元素的别名
+    v-for指令的表达式也可以使用of替代in作为分隔符
+    v-for指令的表达式还支持一个可选的参数作为当前项的索引 -->
+    <div id="app">
+        <ul>
+            <!-- <li v-for="books in book">{{books.title}}</li> -->
+            <li v-for="(books,index) of book">{{index}},{{books.title}}</li>
+        </ul>
+    </div>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        const vm=Vue.createApp({
+            data(){
+                return{
+                    book:[
+                        {title:'aaaaaa'},
+                        {title:'bbbbbb'},
+                        {title:'cccccc'},
+                    ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>

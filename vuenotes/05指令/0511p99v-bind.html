@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-bind指令</title>
+	</head>
+	<body>
+		<div id="app">
+      <!-- 绑定一个属性 -->
+			<p><a v-bind:href="url">新浪网</a></p>
+      <!-- 简写语法 -->
+      <p><a :href="url">新浪网</a></p>
+       <!-- 动态属性名 -->
+      <p><a :[attribute]="url">新浪网</a></p>
+      <form v-bind="formObj">
+        <input type="text">
+      </form>
+      <img :src="'images/' + imgSrc">
+		</div>
+
+    
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+	
+		<script>
+      Vue.createApp({
+        data(){
+          return {
+            url: 'http://www.sina.com.cn',
+            attribute: 'href',
+            formObj: {
+              method: 'get',
+              action: '#'
+            },
+            imgSrc: 'bg.jpg'
+          }
+        }
+      }).mount('#app')
+    </script>
+	</body>
+</html>
+

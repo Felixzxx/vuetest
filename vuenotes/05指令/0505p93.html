@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="n in evenNumbers">{{n}}</li>
+            <li v-for="item in even(numbers)">{{item}}</li>
+            <!-- 4.遍历整数p94 -->
+            <span v-for="n in 10">{{n}}</span>
+            
+        </ul>
+    </div>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        const vm=Vue.createApp({
+            data(){
+                return{
+                    numbers:[1,2,3,4,5,6,7]
+                }
+            },
+            computed:{
+                evenNumbers(){
+                    return this.numbers.filter(function(number){
+                        return number%2===0
+                    })
+                }
+            },
+            methods:{
+                even:function(numbers){
+                    return numbers.filter(function(number){
+                        return number%2===0
+                    })
+                }
+            }
+
+        }).mount('#app')    
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-focus</title>
+	</head>
+	<body>
+		<div id="app">
+      <!-- 自定义指令 -->
+			<input type="text" v-focus>
+		</div>
+	
+    <script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+
+		<script>
+      /*const app = Vue.createApp({})
+      app.directive('focus', {
+        当绑定元素被挂载到DOM中时
+        mounted(el){
+          聚焦元素
+          el.focus()
+        }
+      })*/
+      const app = Vue.createApp({
+        directives: {
+          focus: {
+            mounted(el){
+              el.focus()
+            }
+          }
+        }
+      })
+      app.mount('#app')
+    </script>
+	</body>
+</html>
+

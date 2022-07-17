@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+<!-- v-if\v-else-if\v-else这三个指令用于实现条件判断
+    v-if指令根据表达式的值的真假来生成或删除一个元素
+    如果v-if需要控制多个元素的创建或删除，可以用<template>元素来包裹这些元素
+    然后再<template>元素上使用v-if指令
+    v-else-if指令与v-if一起使用，可以实现互斥的条件判断 -->
+       <p v-if="score>=90">优秀</p>
+       <p v-else-if="score>=70">良好</p>
+       <p v-else-if="score>=60">达标</p>
+       <p v-else>垃圾</p>
+
+    </div>
+    <script src="vue.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+     
+    
+    var vm=Vue.createApp({
+        data(){
+            return{
+                score:90
+            }
+        }
+    }).mount("#app")
+</script>
+</body>
+</html>

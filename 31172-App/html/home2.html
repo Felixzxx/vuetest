@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+          *{
+            margin:0;
+            padding: 0;
+        }        
+        header{
+            width:100%;
+            height:65px;
+            display: -webkit-box;
+        }
+        .input{
+            padding-left: 5px;
+            border: none;           
+            margin-top: 30px;
+            margin-left: 20px;
+            width:350px;
+            height:28px;
+            background-color: rgba(170, 170, 170, 0.411);
+        }
+        input::-webkit-input-placeholder{
+            background-image: url(../image/2.png);
+            background-size: 20px;
+            background-repeat: no-repeat;
+            background-position: left;
+    }
+
+        /* 轮播图 */
+        /* 设置outer的样式 */
+        #outer{
+            width:480px;
+            height:164px;
+            margin: 0px auto;
+            background-color: rgb(207, 152, 152);
+            /* padding: 5px 0; */
+            /* 开启相对定位 */
+            position: relative;
+            /* 裁剪溢出的内容 */
+            overflow: hidden;
+        }
+        /* 设置imgList */
+        #imgList{
+            /* 去除项目符号 */
+            list-style: none;
+            /* 设置ul宽度 */
+            /* width:1640px; */
+            /* 开启绝对定位 */
+            position:absolute;
+            /* 设置偏移量 */
+            /* left: -410px; */
+        }
+       
+
+        /* 设置图片的浮动 */
+        #imgList li{
+            float: left; 
+            /* margin:0 5px; */
+        }
+
+
+        /* 设置导航按钮 */
+        #navDiv{
+            /* 开启绝对定位 */
+            position: absolute;
+            bottom: 10px;         
+        }
+
+
+        /* 导航a元素的排列 */
+        #navDiv a{
+            /* 设置超链接浮动 */
+            float:left;/* 浮动之后内联元素变块元素 */
+            /* 设置超链接的宽高 */
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 15px;/* 圆角 */
+            margin: 2px;
+            /* 设置透明度 */
+            opacity:0.25;
+            filter:alpha(opacity=50);/* 兼容IE8透明 */
+        }
+        #navDiv a:hover{
+            background-color: black;
+        } 
+        .top{
+            width:100%;
+            height:auto;
+            display: -webkit-box;
+        }
+        .zhoubian{
+            width:460px;
+            height:300px;
+            margin-top: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 1px solid rgba(218, 218, 218, 0.678);
+        }
+        .zhoubian_top{
+            width:460px;
+            height:150px;
+            display: -webkit-box;
+
+
+        }
+        
+        .zhoubian_left,.zhoubian_right{
+            width:230px;
+            height:150px;
+        } 
+        .zhoubian_img{
+            display: -webkit-box;
+            width:100%;
+            height:50px;
+        }
+        .zhoubian_img img{
+            width:92px;
+            height:92px;
+            margin-left: 14px;
+        }
+        .zhoubian_top p{
+            margin:8px;
+        }
+      </style>
+  </head>
+  <body>
+      <header>
+        <input id="input" class="input" type="text" placeholder=" ">
+        <div>
+            <img style="margin-left:13px;margin-top:27px;width:30px;height:auto;opacity: 0.8;" src="../image/home2_header_1.png">
+            <img style="margin-left:10px;width:25px;height:auto;opacity: 0.6; /* 透明度 */ "  src="../image/home2_header_2.png">
+        </div>
+      </header>
+        <!-- 轮播图 -->
+        <!-- 创建一个外部的div 来作为一个容器 -->
+        <div id="outer">
+            <!-- 创建一个ul，用来放置图片 -->
+            <ul id="imgList">
+                <li>
+                    <img class='img_lunbo' src="../image/home2_1.jpg">
+                </li>
+                <li>
+                    <img class='img_lunbo' src="../image/home2_2.jpg">
+                </li>
+                <li>
+                    <img class='img_lunbo' src="../image/home2_1.jpg">
+                </li>
+                
+            </ul>
+            <!-- 创建导航按钮 -->
+            <div id="navDiv">
+                <a href="javascript:;"></a>
+                <a href="javascript:;"></a>
+            </div>
+        </div>
+        <section>
+            <div class="top">
+                <p style="width:100px;
+                    height:30px;
+                    margin-left: 20px;
+                    margin-top: 10px;
+                    font-size: 18px;"><b>O妹种草</b></p>
+                <p style="position: absolute;
+                    width:60px;
+                    height:30px;      
+                    right:0px; 
+                    font-size: 16px;
+                    margin-top:15px;
+                    color:rgb(95, 95, 255);">more></p>
+            </div>
+            <img style='width: 460px;height: auto;margin-top:5px;margin-left: 10px;margin-right: 10px;' src="../image/home2_top.jpg">
+
+            <div class="zhoubian">
+                <div class="zhoubian_top">
+                    <div class="zhoubian_left">
+                        <p >明星周边</p>
+                        <div class="zhoubian_img">
+                            <img src="../image/zhoubian_img_1.jpg">
+                            <img src="../image/zhoubian_img_2.jpg">
+                        </div>
+                    </div>
+                    <div class="zhoubian_right">
+                        <p>O星热聊</p>
+                        <div class="zhoubian_img">
+                            <img src="../image/zhoubian_img_3.jpg">
+                            <img src="../image/zhoubian_img_4.jpg">
+                        </div>
+                    </div>
+                </div>
+                <div class="zhoubian_top">
+                    <div class="zhoubian_left">
+                        <p >自营专区</p>
+                        <div class="zhoubian_img">
+                            <img src="../image/zhoubian_img_5.jpg">
+                            <img src="../image/zhoubian_img_6.jpg">
+                        </div>
+                    </div>
+                    <div class="zhoubian_right">
+                        <p>趣味生活</p>
+                        <div class="zhoubian_img">
+                            <img src="../image/zhoubian_img_7.jpg">
+                            <img src="../image/zhoubian_img_8.jpg">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    
+  </body>
+  <script type="text/javascript">
+    window.onload=function(){
+        /* 获取imgList */
+        var imgList=document.getElementById("imgList");
+        //获取页面中所有img标签
+        var imgArr = document.getElementsByClassName("img_lunbo");
+        /* 设置imgList宽度 */
+        imgList.style.width=480*imgArr.length+"px";
+
+
+        /* 设置导航按钮居中 */
+        //获取navDiv
+        var navDiv=document.getElementById("navDiv");
+        //获取outer
+        var outer=document.getElementById("outer");
+        //设置navDiv left的值
+        navDiv.style.left=(outer.offsetWidth-navDiv.offsetWidth)/2 + "px";/* 获取元素宽度 */
+
+
+        //默认显示图片的索引
+        var index=0;
+        //获取所有a
+        var allA=document.getElementsByTagName("a");
+        //设置默认选中的效果
+        allA[index].style.backgroundColor="black";
+
+        /* 点击索引换指定图片 */
+        for(var i=0; i<allA.length; i++){
+                //为每一个超链接都添加一个num属性
+            allA[i].num=i;
+                //为超链接绑定单击相应函数
+            allA[i].onclick=function(){
+
+                //点击的时候关闭定时器
+                clearInterval(timer);
+                //获取点击超链接的索引
+                index=this.num;
+                //切换图片
+                //imgList.style.left=index*(-410)+"px";
+                
+                setA();
+                move(imgList,"left",-480*index,10,function(){
+                    autoChange();
+                });
+            };
+        
+        }
+
+        //自动切换图片
+        autoChange();
+        //设置选中的a
+        function setA(){
+
+            //判断当前索引是否是最后一张
+            if(index>=imgArr.length-1){
+                //则将index设置为0
+                index=0;
+                //通过css将左侧偏移量改成0
+                imgList.style.left=0;
+            }
+            //遍历所有a，并将他们的背景设置为空，这样就会用css中的样式
+            for(var i=0;i<allA.length;i++){
+                allA[i].style.backgroundColor="";                
+            }
+            //将选中的变为黑色
+            allA[index].style.backgroundColor="black";
+        };
+
+        var timer;
+        //用来开启自动切换图片
+        function autoChange(){
+            //开启一个定时器，用来开启定时去切换图片
+                timer=setInterval(function(){
+                //索引自增
+                index++;
+                index%=imgArr.length;
+                move(imgList,"left",-480*index,10,function(){
+                    setA();
+                });
+            },3000);
+        }
+    };
+
+
+</script>
+  <script type="text/javascript" src="../script/tools.js"></script>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+      apiready = function(){
+        initRefresh();
+        /* console.log("= = d2"); */
+      };
+      function initRefresh(){
+    api.setRefreshHeaderInfo({
+        loadingImg:'widget://image/owhat01.png',
+        bgColor:'#ccc',
+        textColor:"#fff",
+        textDown:'下拉刷新...',
+        textUp:'松开刷新...'
+    },function(ret,err){
+        api.refreshHeaderLoadDone();
+    });
+}
+  </script>
+  </html>

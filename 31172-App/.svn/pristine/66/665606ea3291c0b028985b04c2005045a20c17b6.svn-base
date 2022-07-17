@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+            margin:0;
+            padding: 0;
+        }
+    #h{
+        position:sticky;
+        top:0px;
+
+    }
+    body{
+        background-color: #fafafa;
+
+    }
+    .back{
+        position: absolute;
+            width:30px;
+            height:30px;
+            top:30px;
+            left:20px;
+            z-index: 100;
+
+        }
+    #header{
+        width:100%;
+        height:41px;
+        background-color: rgb(226, 226, 226);
+        position:relative;
+        text-align:center;
+        padding-top: 30px;
+    }
+    #p01_use{
+        width:80px;
+        height:30px;
+        display: inline; 
+        font-size:20px;
+        color: rgb(27, 27, 27);
+    }
+    /*  */
+    .top{
+        width:100%;
+        height:auto;
+    }
+    .tou{
+        position: absolute;
+        top:280px;
+        left:20px;
+        width:80px;
+        height:80px;
+        border-radius: 50%;
+    }
+    .btn01{
+        width:70px;
+        height:25px;
+        background-color:rgb(71, 43, 228);
+        position:absolute;
+        right:20px;
+        top:350px;
+        text-align: center;
+        line-height: 25px;
+    }
+    .content{
+        margin-top: 10px;
+        width:480px;
+        height:auto;
+        
+        display: -webkit-box;
+
+    }
+    .one{
+        width:220px;
+        height:250px;
+        /* border:1px solid #888; */
+        margin-left: 13px;
+       
+    }
+    .title{
+        margin:5px;
+    }
+    .title1{
+        float: left;
+        border:1px solid rgb(71, 43, 228);
+        color:rgb(71, 43, 228);
+        font-size: small;
+        padding-left: 2px;
+        padding-right: 2px;
+        margin-right: 3px;
+    }
+    .title2{
+        color:rgb(27, 27, 27);
+        font-size: 15px;       
+    }
+    .value{
+        display: -webkit-box;
+    }
+    footer{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    
+</style>
+</head>
+<body>
+    <div id="h">
+        <img class="back" src="../image/icons8-back-60.png" tapmode onclick="api.closeWin();" >
+        <div id="header">
+            <p id="p01_use"></p>
+        </div>
+    </div>
+    <section>
+        <div>
+            <img class='top' src="../image/home1_4_top.jpg">
+            <img class='tou' src="../image/home1_4_tou.jpg">
+            <p style="margin:20px 0 0 20px;font-weight: 500;">Owhat自营<img src="../image/home1_4_name.png"></p>
+            <div class="btn01" id="btn01"><p id='p1' style="color:cornsilk">关注TA</p></div>
+            <p style="margin-left: 10px;margin-right: 10px;color:#888;font-size: small;">客服联系方式“我的——客服中心"或联系Owhat微博，留言一次即可，避免因刷屏而耽误您的回复感谢！</p>
+        </div>
+        <div style="margin-left: 20px;margin-right:20px;height:30px;border-bottom: 1px solid rgba(136, 136, 136, 0.226);">
+            <p style="margin-left: 20px;margin-top: 10px;color:rgb(46, 46, 46);font-size: 17px;">店铺</p>
+        </div>
+        <div class="content">
+            <div class="one">
+                <img style="width:220px; height:auto; border-radius:5% ;" src="../image/home1_4_content4.jpg">
+                <div class="title">
+                    <p class="title1">自营</p>
+                    <p class="title2">IKON-《NEW&nbsp;KIDS:CONTINUE》</p>
+                </div>
+                <div class="value">
+                    <p style="color: brown;font-size: 20px;">￥9.90</p>
+                    <p style="text-decoration: line-through;color:#888; font-size: small;margin-left: 15px;margin-top: 6px;">￥100.00</p>
+                </div>              
+            </div>
+            <div class="one">
+                <img style="width:220px; height:auto; border-radius:5% ;" src="../image/home1_4_content1.jpg">
+                <div class="title">
+                    <p class="title1">自营</p>
+                    <p class="title2">乐华七子NEXT《NEXT TO YOU》正式售卖</p>
+                    <div class="value">
+                        <p style="color: brown;font-size: 20px;">￥59.90</p>
+                        <p style="text-decoration: line-through;color:#888; font-size: small;margin-left: 15px;margin-top: 6px;">￥137.00</p>
+                    </div>
+
+                </div>              
+            </div>           
+        </div>
+        <div class="content">
+            <div class="one">
+                <img style="width:220px; height:auto; border-radius:5% ;" src="../image/home1_4_content3.jpg">
+                <div class="title">
+                    <p class="title1">自营</p>
+                    <p class="title2">TINYL&nbsp;x&nbsp;Joyside&nbsp;限量联名款迷你蓝牙黑胶唱机&nbsp;潮流玩...</p>
+                </div>              
+                <p style="color: brown;font-size: 20px;">￥399.00</p>
+            </div>
+            <div class="one">
+                <img style="width:220px; height:auto; border-radius:5% ;" src="../image/home1_4_content2.jpg">
+                <div class="title">
+                    <p class="title1">自营</p>
+                    <p class="title2">LOOP经典款 迷你黑胶唱片机复古蓝牙音箱 潮流音乐...</p>
+                </div>              
+                <p style="color: brown;font-size: 20px;">￥349.00</p>
+            </div>           
+        </div>
+    </section>
+    <footer>
+        <p style="color:#888">没有更多了</p>
+    </footer>
+</body>
+<script>
+    apiready=function(){
+        var p01=api.pageParam.name;
+        var p01_use=document.getElementById('p01_use');
+        p01_use.innerHTML=p01;
+    }
+    var btn01=document.getElementById('btn01');
+    btn01.onclick=function(){
+        if (p1.innerHTML=='已关注') {
+            var a=function(ret){
+            api.confirm({
+                title:'提示',
+                msg:'是否不再关注',
+                buttons:['确定','取消']
+                
+            },function(ret){
+                if(ret.buttonIndex==1){
+                    p1.innerHTML='关注TA';
+            btn01.style.backgroundColor='rgb(71, 43, 228)'; 
+                }
+            
+        });
+    }; 
+        a();
+            
+        } else if (p1.innerHTML == '关注TA') {
+            p1.innerHTML='已关注';
+            btn01.style.backgroundColor='#aaa';
+        }
+        
+    }     
+    
+    
+</script>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        /* 轮播图 */
+        /* 设置outer的样式 */
+        #outer{
+            width:480px;
+            height:480px;
+            margin: 0px auto;
+            /* background-color: rgb(207, 152, 152); */
+            /* padding: 5px 0; */
+            /* 开启相对定位 */
+            position: relative;
+            /* 裁剪溢出的内容 */
+            overflow: hidden;
+        }
+        /* 设置imgList */
+        #imgList{
+            /* 去除项目符号 */
+            list-style: none;
+            /* 设置ul宽度 */
+            /* width:1640px; */
+            /* 开启绝对定位 */
+            position:absolute;
+            /* 设置偏移量 */
+            /* left: -410px; */
+        }
+       
+
+        /* 设置图片的浮动 */
+        #imgList li{
+            float: left; 
+            /* margin:0 5px; */
+        }
+
+
+        /* 设置导航按钮 */
+        #navDiv{
+            /* 开启绝对定位 */
+            position: absolute;
+            bottom: 10px;         
+        }
+
+
+        /* 导航a元素的排列 */
+        #navDiv a{
+            /* 设置超链接浮动 */
+            float:left;/* 浮动之后内联元素变块元素 */
+            /* 设置超链接的宽高 */
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 15px;/* 圆角 */
+            margin: 2px;
+            /* 设置透明度 */
+            opacity:0.25;
+            filter:alpha(opacity=50);/* 兼容IE8透明 */
+        }
+        #navDiv a:hover{
+            background-color: black;
+        } 
+
+        /* 头部 */
+        .register_login{        
+            position: absolute;
+            top:25px;
+            left: 20px;
+            width: 30px;
+            height: 30px;          
+            background-image: url(../image/register_login.png);
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+        }
+        .look{
+            position: absolute;
+            top:25px;
+            right: 60px;
+            width: 30px;
+            height: 30px;          
+            background-image: url(../image/look.png);
+            background-repeat: no-repeat;
+            background-size: 30px 30px;
+        }
+        .news{
+            position: absolute;
+            top:25px;
+            right: 20px;
+            width: 27px;
+            height: 27px;          
+            background-image: url(../image/news.png);
+            background-repeat: no-repeat;
+            background-size: 27px 27px;
+        }
+        .centre{
+            /* position: relative; */
+            width:100%;
+            height:80px;
+            border-bottom: 1px solid rgba(221, 221, 221, 0.685);
+        }
+        .centre_centre1{
+            margin-left:5px;
+            margin-right: 5px;
+            position: relative;
+            width:auto;
+            height:55px;
+            margin-top: 4px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+        .picture01{
+            width:50px;
+            height:55px;
+            background-image: url(../image/centre1.jpg);
+            background-size: auto 50px;
+
+        }
+        .picture02{
+            width:50px;
+            height:55px;
+            background-image: url(../image/centre2.jpg);
+            background-size: auto 50px;
+
+        }
+        .picture03{
+            width:50px;
+            height:55px;
+            background-image: url(../image/centre3.jpg);
+            background-size: auto 50px;
+
+
+        }
+        .picture04{
+            width:50px;
+            height:55px;
+            background-image: url(../image/centre4.jpg);
+            background-size: auto 50px;
+
+
+        }
+        .picture05{
+            width:50px;
+            height:55px;
+            background-image: url(../image/centre5.jpg);
+            background-size: auto 50px;
+        }
+        .centre_centre2{
+            margin-left:5px;
+            margin-right: 5px;
+            position: relative;
+            width:auto;
+            height:20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .centre_centre2 p{
+            color:rgb(88, 88, 88);
+            font-size: 14px;
+        }
+        .flash h1{
+            color:#1d1d1d;
+            margin: 10px;
+            font-size: larger;
+        }
+        .flash h2{
+            color:#ae8bff;
+            margin: 10px;
+            font-size:small;
+        }
+        .flash_text{
+            width:100%;
+            height:auto;
+            /* background-color:#ae8bff; */
+        }
+        .module{
+            float:left;
+            width: 220px;
+            height: 370px;
+            box-shadow: rgba(230, 230, 230, 0.644) 1px 1px 3px 0.1px;
+            margin: 10px;
+            
+        }
+        .module p{
+            margin-left:10px;
+            margin-top: 6px;
+            font-size: 14px;
+        }
+        .module h3{
+            position: relative;
+            font-size: 15px;
+            color: #888;
+            font-weight:300;
+            margin-top: 10px;
+            margin-left: 30px;
+            padding-top: 3px;
+        }
+        .photo01{
+            /* margin:2px auto; */
+            width: 220px;
+            height: 300px;
+            background-image: url(../image/photo01.jpg);
+            background-size: 220px auto;
+        }
+        .photo02{
+            /* margin:2px auto; */
+            width: 220px;
+            height: 300px;
+            background-image: url(../image/photo02.jpg);
+            background-size: 220px auto;
+        }
+        .photo03{
+            /* margin:2px auto; */
+            width: 220px;
+            height: 300px;
+            background-image: url(../image/photo03.jpg);
+            background-size: 220px auto;
+        }
+        .photo04{
+            /* margin:2px auto; */
+            width: 220px;
+            height: 300px;
+            background-image: url(../image/photo04.jpg);
+            background-size: 220px auto;
+        }
+        .people01{
+            width: 30px;
+            height: 30px;
+            background-image: url(../image/people01.jpg);
+            background-size: 22px auto;
+            background-repeat: no-repeat;
+        }
+        .people02{
+            width: 30px;
+            height: 30px;
+            background-image: url(../image/people02.jpg);
+            background-size: 22px auto;
+            background-repeat: no-repeat;
+        }
+        .people03{
+            width: 30px;
+            height: 30px;
+            background-image: url(../image/people03.jpg);
+            background-size: 22px auto;
+            background-repeat: no-repeat;
+        }
+        .people04{
+            width: 30px;
+            height: 30px;
+            background-image: url(../image/people04.jpg);
+            background-size: 22px auto;
+            background-repeat: no-repeat;
+        }
+
+
+    </style>
+    <script type="text/javascript" src="../script/tools.js"></script>
+    <script type="text/javascript">
+        window.onload=function(){
+            /* 获取imgList */
+            var imgList=document.getElementById("imgList");
+            //获取页面中所有img标签
+            var imgArr = document.getElementsByTagName("img");
+            /* 设置imgList宽度 */
+            imgList.style.width=480*imgArr.length+"px";
+
+
+            /* 设置导航按钮居中 */
+            //获取navDiv
+            var navDiv=document.getElementById("navDiv");
+            //获取outer
+            var outer=document.getElementById("outer");
+            //设置navDiv left的值
+            navDiv.style.left=(outer.offsetWidth-navDiv.offsetWidth)/2 + "px";/* 获取元素宽度 */
+
+
+            //默认显示图片的索引
+            var index=0;
+            //获取所有a
+            var allA=document.getElementsByTagName("a");
+            //设置默认选中的效果
+            allA[index].style.backgroundColor="black";
+
+            /* 点击索引换指定图片 */
+            for(var i=0; i<allA.length; i++){
+                    //为每一个超链接都添加一个num属性
+                allA[i].num=i;
+                    //为超链接绑定单击相应函数
+                allA[i].onclick=function(){
+
+                    //点击的时候关闭定时器
+                    clearInterval(timer);
+                    //获取点击超链接的索引
+                    index=this.num;
+                    //切换图片
+                    //imgList.style.left=index*(-410)+"px";
+                    
+                    setA();
+                    move(imgList,"left",-480*index,10,function(){
+                        autoChange();
+                    });
+                };
+            
+            }
+
+            //自动切换图片
+            autoChange();
+            //设置选中的a
+            function setA(){
+
+                //判断当前索引是否是最后一张
+                if(index>=imgArr.length-1){
+                    //则将index设置为0
+                    index=0;
+                    //通过css将左侧偏移量改成0
+                    imgList.style.left=0;
+                }
+                //遍历所有a，并将他们的背景设置为空，这样就会用css中的样式
+                for(var i=0;i<allA.length;i++){
+                    allA[i].style.backgroundColor="";
+                    
+                }
+                //将选中的变为黑色
+                allA[index].style.backgroundColor="black";
+            };
+
+            var timer;
+            //用来开启自动切换图片
+            function autoChange(){
+                //开启一个定时器，用来开启定时去切换图片
+                    timer=setInterval(function(){
+                    //索引自增
+                    index++;
+                    index%=imgArr.length;
+                    move(imgList,"left",-480*index,10,function(){
+                        setA();
+                    });
+                },3000);
+            }
+        };
+
+
+    </script>
+  </head>
+  <body>
+      <!-- 轮播图 -->
+    <!-- 创建一个外部的div 来作为一个容器 -->
+    <div id="outer">
+        <!-- 创建一个ul，用来放置图片 -->
+        <ul id="imgList">
+            <li>
+                <img src="../image/lunbo1.jpg">
+            </li>
+            <li>
+                <img src="../image/lunbo2.jpg">
+            </li>
+            <li>
+                <img src="../image/lunbo3.jpg">
+            </li>
+            <li>
+                <img src="../image/lunbo4.jpg">
+            </li>
+            <li>
+                <img src="../image/lunbo1.jpg">
+            </li>
+        </ul>
+        <div class="header">
+            <div class="register_login" tapmode onclick="fnOpenPersonCenterWin();"></div>
+            <div class="look" ></div>
+            <div class="news"></div>
+        </div>
+
+        <!-- 创建导航按钮 -->
+        <div id="navDiv">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+
+    <section>
+        <div class="centre">
+            <div class="centre_centre1">
+                <div class="picture01"  tapmode onclick="fnOpenCenterWin();"></div>
+                <div class="picture02"></div>
+                <div class="picture03"></div>
+                <div class="picture04"></div>
+                <div class="picture05"></div>
+            </div>
+            <div class="centre_centre2">
+                <p id="p01">退款查询</p>
+                <p>故事店</p>
+                <p>种草体验馆</p>
+                <p>爆款商品</p>
+                <p>O星热聊</p>
+            </div>
+        </div>
+        <div class="flash">
+            <h1>爱豆闪光时刻</h1>
+            <h2>让这里变成你和爱豆的专属领地</h2>
+            <div class="flash_text">
+                <div class="module">
+                    <div class="photo01"></div>
+                    <p>felix好漂亮</p>
+                    <div class="people01">
+                        <h3>Alin
+                    </div>
+                    
+                </div>
+                <div class="module">
+                    <div class="photo02"></div>
+                    <p>昇玟啊啊金狗狗</p>
+                    <div class="people02">
+                        <h3>Amazeexx
+                    </div>
+
+                </div>
+                <div class="module">
+                    <div class="photo03"></div>
+                    <p>灿爹绝了</p>
+                    <div class="people03">
+                        <h3>Overrun
+                    </div>
+
+                </div>
+                <div class="module">
+                    <div class="photo04"></div>
+                    <p>给大家安利straykids的李糯</p>
+                    <div class="people04">
+                        <h3>jy.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+            
+    </section>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+      apiready = function(){
+        initRefresh();
+        api.addEventListener({
+        name:'scrolltobottom',
+        extra:{
+            threshold:0
+        }
+    }, function(ret,err){
+        api.alert({
+            msg:'已滚动到底部'
+        });
+    });
+};
+      
+      function initRefresh(){
+    api.setRefreshHeaderInfo({
+        loadingImg:'widget://image/owhat01.png',
+        bgColor:'#ccc',
+        textColor:"#fff",
+        textDown:'下拉刷新...',
+        textUp:'松开刷新...'
+    },function(ret,err){
+        api.refreshHeaderLoadDone();
+    });
+}
+
+function fnOpenPersonCenterWin(){
+        var isLogin=false;
+        if (isLogin){
+        }else{
+            api.openWin({
+                name:'login',
+                url:'./login.html',
+                pageParam:{
+                    name:'test'
+                }
+            });
+        }
+    }
+
+    function fnOpenCenterWin(){
+        var p01=document.getElementById('p01');
+        var isLogin=false;
+        if (isLogin){
+        }else{
+            api.openWin({
+                name:'home1_one',
+                url:'./home1_one.html',
+                pageParam:{
+                    name:p01.innerHTML
+                }
+            });
+        }
+    }
+  </script>
+  </html>

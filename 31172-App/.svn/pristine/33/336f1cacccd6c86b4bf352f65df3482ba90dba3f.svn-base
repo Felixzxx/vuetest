@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+            margin:0;
+            padding: 0;
+        }
+    body{
+        background-color: #fafafa;
+
+    }
+    .back{
+        position: absolute;
+            width:30px;
+            height:30px;
+            top:30px;
+            left:20px;
+            z-index: 100;
+
+        }
+    #header{
+        width:100%;
+        height:41px;
+        background-color: rgb(226, 226, 226);
+        position:relative;
+        text-align:center;
+        padding-top: 30px;
+    }
+    #p01_use{
+        width:80px;
+        height:30px;
+        display: inline; 
+        font-size:20px;
+        color: rgb(27, 27, 27);
+    }
+    .top{
+        width:100%;
+        height: auto;
+    }
+    .center{
+        width:100%;
+        height:50px;
+        display: -webkit-box;/* 自适应同高 */
+
+    }
+    .center01,.center02{
+    }
+    .center01{
+        width:100px;
+        height:30px;
+        margin-left: 20px;
+        margin-top: 10px;
+        font-size: 18px;
+    }
+    .center02{
+        position: absolute;
+        width:100px;
+        height:30px;      
+        right:20px; 
+        font-size: 16px;
+        margin-top: 10px;
+        color:rgb(95, 95, 255);
+    }
+    .text_box{
+        width:100%;
+        height:110px;
+        height:112px;
+        margin-bottom: 15px;
+        position: relative;
+    }
+    .text_img{
+        width:200px;
+        height:auto;
+        float: left;
+        margin-left: 15px;
+        margin-right: 10px;
+        z-index: 100;
+    }
+    .text_right{
+        margin-top: 5px;
+        height:112px;
+        
+        
+    }
+    .text_right_footer{
+        display: -webkit-box;
+    }
+    .text_right_footer{
+        position: absolute;
+        bottom: 5px;
+        right:20px;
+    }
+    button{
+        width:35px;
+        height:25px;
+        outline: none;
+        border-style: none;
+        background-color: rgb(255, 219, 250);
+        border-radius: 30%;
+        color: #fafafa;
+    }
+    
+</style>
+</head>
+<body>
+    <img class="back" src="../image/icons8-back-60.png" tapmode onclick="api.closeWin();" >
+    <div id="header">
+        <p id="p01_use"></p>
+    </div>
+    <section>
+        <img class='top' src="../image/home1_3_top.jpg">
+        <div class="center">
+            <p class="center01"><b>O妹来种草</b></p>
+            <p class="center02">5300人已参与</p>
+        </div>
+        <div class="text">
+            <div class="text_box">
+                <img class="text_img" src="../image/home1_3_text01.jpg">
+                <div class="text_right">
+                    <p style="font-size: 17px; margin-right: 15px;">&nbsp;&nbsp;[小壳Cature]爆款洁齿水、小白牙</p>
+                    <div class="text_right_footer">
+                        <p>价值</p><p style="color: brown; margin-right: 120px;">￥49.9</p>
+                        <button>buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text_box">
+                <img class="text_img" src="../image/home1_3_text02.jpg">
+                <div class="text_right">
+                    <p style="font-size: 17px; margin-right: 15px;">&nbsp;&nbsp;保可贝爱心便携式免洗洗手喷雾邀你免费试用</p>
+                    <div class="text_right_footer">
+                        <p>价值</p><p style="color: brown; margin-right: 120px;">￥39.9</p>
+                        <button>buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text_box">
+                <img class="text_img" src="../image/home1_3_text03.jpg">
+                <div class="text_right">
+                    <p style="font-size: 17px; margin-right: 15px;">&nbsp;&nbsp;《中国医生》 邀你免费观看</p>
+                    <div class="text_right_footer">
+                        <p>价值</p><p style="color: brown; margin-right: 120px;">￥50.0</p>
+                        <button>buy</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text_box">
+                <img class="text_img" src="../image/home1_3_text04.jpg">
+                <div class="text_right">
+                    <p style="font-size: 17px; margin-right: 15px;">&nbsp;&nbsp;「芙芙」清颜日夜组合痘痘贴 邀你免费体验</p>
+                    <div class="text_right_footer">
+                        <p>价值</p><p style="color: brown; margin-right: 120px;">￥39.9</p>
+                        <button>buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    apiready=function(){
+        var p01=api.pageParam.name;
+        var p01_use=document.getElementById('p01_use');
+        p01_use.innerHTML=p01;
+    }
+    
+</script>
+</html>

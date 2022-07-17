@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    *{
+            margin:0;
+            padding: 0;
+        }
+    body{
+        background-color: #fafafa;
+
+    }
+    .back{
+        position: absolute;
+            width:30px;
+            height:30px;
+            top:30px;
+            left:20px;
+            z-index: 100;
+
+        }
+    #header{
+        width:100%;
+        height:41px;
+        background-color: rgb(226, 226, 226);
+        position:relative;
+        text-align:center;
+        padding-top: 30px;
+    }
+    #p01_use{
+        width:80px;
+        height:30px;
+        display: inline; 
+        font-size:20px;
+        color: rgb(27, 27, 27);
+    }
+    .row {
+        width: auto;
+        height: 70px;
+        box-sizing: border-box;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding-top: 40px;
+        border-bottom: 1px solid #888;
+        
+    }
+    input::-webkit-input-placeholder{
+        color:#aaa;
+    }
+    
+    #input {
+        width: 100%;
+        height: 20px;
+        border: none;
+        font-size: 16px;
+        line-height: 20px;
+        background-color: rgba(0, 0, 0, 0);
+    }
+</style>
+</head>
+<body>
+    <img class="back" src="../image/icons8-back-60.png" tapmode onclick="api.closeWin();" >
+    <div id="header">
+        <p id="p01_use"></p>
+    </div>
+    <section>
+        <div class="row">
+        <input id="input" placeholder="请输入下单手机号/订单查询退款进度">
+    </div>
+    </section>
+</body>
+<script>
+    apiready=function(){
+        
+
+        var p01=api.pageParam.name;
+        var p01_use=document.getElementById('p01_use');
+        p01_use.innerHTML=p01;
+    }
+</script>
+</html>

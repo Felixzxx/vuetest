@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>注册Frame</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <style>
+        header{
+              width:100%;
+              height:50px;
+              background-color:#fafafa;
+          }
+          .back{
+              /* transform:rotate(90deg); */
+              position: absolute;
+              bottom:15px;
+              left:20px;
+              width:25px;         
+          }
+          header h1{
+              width:100%;
+              height:50px;
+              line-height:50px;
+              text-align: center;
+              color:#1d1d1d;
+              font-size:20px;
+          }
+          .right{
+              position: absolute;
+              bottom:0;
+              right:5px;
+              width:50px;
+              height:50px;
+              line-height: 50px;
+              color:#1d1d1d;
+              font-size: 16px;
+          }
+    /* .header{
+        width:100%;
+        height:50px;
+        background-color:#fafafa;
+    }
+    .back{
+        position: absolute;
+        bottom:15px;
+        left:20px;
+        width:25px;         
+    } */
+    .row {
+        box-sizing: border-box;
+        width: auto;
+        height: 70px;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding-top: 40px;
+        border-bottom: 1px solid #888;
+    }
+    
+    .input {
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        border: none;
+        font-size: 16px;
+    }
+    
+    .btn {
+        width: auto;
+        height: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 32px;
+        background-color: #e0e0e0;
+        color: #fff;
+        font-size: 24px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 80px;
+    }
+    
+    .highlight {
+        opacity: 0.7;
+    }
+    </style>
+</head>
+
+<body>
+    
+    <header id="header">
+        <img class="back" src="../image/return.png" tapmode onclick="api.closeWin();" >
+    <h1>注册</h1>
+    </header>
+
+    <div class="row">
+        <input id="username" class="input" type="text" placeholder="用户名">
+    </div>
+    <div class="row">
+        <input id="password" class="input" type="password" placeholder="密码">
+    </div>
+    <div class="btn" tapmode onclick='fnRegisterToFile();'>注册</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+apiready = function() {
+    var header=$api.byId('header');
+        $api.fixStatusBar(header);
+        var headerH=$api.offset(header).h;
+        
+};
+function fnRegisterToFile(){
+    var username=$api.byId('username');
+    var password=$api.byId('password');
+    var usernameValue=username.value;//从注册界面中获取的用户输入的用户名
+    var passwordValue=password.value;//从注册界面中获取的用户输入的密码
+
+    api.writeFile({
+        path: 'fs://register.txt',
+        data: '用户名：'+usernameValue+' '+'密码：'+passwordValue
+    }, function(ret, err){
+        if(ret.status){
+            alert('写入成功');
+        }else{
+            alert('写入失败');
+        }
+    });
+    api.readFile({
+        path:'fs://register.txt'
+    },function(ret,err){
+        if(ret.status){
+            var data=ret.data;
+            alert(data);
+        }else{
+            api.alert({
+                msg:JSON.stringify(err)
+            });
+        }
+    });
+}
+</script>
+
+</html>

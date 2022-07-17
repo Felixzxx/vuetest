@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+          body{
+
+          }
+          .count{
+              height:250px;
+          }
+          .box{
+              width:100%;
+              height:30px;
+              display: -webkit-box;
+              position: relative;
+              border-bottom: 1px solid rgba(211, 211, 211, 0.568);
+          }
+          #p1{
+              margin-left: 100px;
+              color: rgb(49, 49, 49);
+          }
+          #p2{
+              position: absolute;
+              right: 100px;
+              color: rgb(49, 49, 49);
+
+          }
+
+      </style>
+  </head>
+  <body>
+      <div class="count"></div>
+    <div class="box" id="box">
+        <p id="p1" class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(0);">我的pink</p><!-- 开启我的追星生活 -->
+        <p id="p2" class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(1);">我发布的</p>
+    </div>
+
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+      apiready = function(){
+        var personalCenter = api.require('personalCenter');
+
+var btnArray = [{
+
+    'title': '好友',
+    'count': '5'
+}, {
+
+    'title': '回贴',
+    'count': '240'
+}, {
+
+    'title': '主题',
+    'count': '27'
+}];
+
+var count = 382;
+
+var y = 0;
+
+
+personalCenter.open({
+    'y': y,
+    'imgPath': '../image/centre5.jpg',
+    'placeholderImg': '../image/1111111.png',
+    'userName': 'APICloud',
+    'count': count,
+    'modButton': {
+        'bgImg': '../image/3333333.png',
+        /* 'lightImg': '../image/2222222.png' */
+    },
+    fixedOn: api.frameName,
+    'btnArray': btnArray
+}, function(ret, err) {
+    /* 头像修改按钮. */
+    if (btnArray.length === ret.click) {
+        api.confirm({
+            title: '聊天盒子',
+            msg: '您想要从哪里选取图片 ?',
+            buttons: ['优雅自拍', '相册收藏', '取消']
+        }, function(ret, err) {
+            var sourceType = 'album';
+
+            if (3 == ret.buttonIndex) { // 取消
+                return;
+            }
+
+            if (1 == ret.buttonIndex) { // 打开相机
+                sourceType = 'camera';
+            }
+
+            api.getPicture({
+                sourceType: sourceType,
+                encodingType: 'png',
+                mediaValue: 'pic'
+            }, function(ret, err) {
+                if (ret) {
+                    personalCenter.updateValue({
+                        imgPath: ret.data,
+                        count: count
+                    });
+
+                }
+            });
+
+        });
+
+        return;
+    }
+
+    var msg;
+
+    /* 修改按钮. */
+    if (btnArray.length + 1 == ret.click) {
+        msg = '您没有修改权限!';
+    }
+    
+
+    if (btnArray.length + 2 == ret.click) {
+        msg = '您没有设置权限!'
+    } 
+
+    if (btnArray.length == ret.click) {
+        btn = btnArray[ret.click];
+        msg = btn.title + ' 数量为 ' + btn.count
+    }
+    
+
+    api.toast({
+        msg: msg,
+        duration: 1000,
+        location: 'top'
+    });
+});
+
+
+
+      };
+     
+  </script>
+  </html>

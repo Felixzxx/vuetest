@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+      <title>title</title>
+      <link rel="stylesheet" type="text/css" href="../css/api.css"/>
+      <style>
+          body{
+
+          }
+          footer{           
+              position: absolute;
+              width:100%;
+              height:58px;
+              bottom: 0;              
+              /* border: 1px solid #919191; */
+              box-shadow: #888 10px 10px 10px 5px;
+              text-align:center;
+              overflow: hidden;
+          }
+          footer .menu{
+              height:40px;
+              width: auto;
+              margin: 5px 40px;
+              display: inline;
+          }
+          .menu.selected{
+            margin-top: 5px;
+             height:48px;
+              width: auto;
+              display: inline;
+
+          }
+      </style>
+  </head>
+  <body>
+    <footer id="footer">
+        
+            <img class="menu selected" tapmode="selected" onclick="fnSetNavMenuIndex(0);" src="../image/footer01.jpg">
+            <img class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(1);" src="../image/footer02.jpg">
+            <img class="menu" tapmode="selected" onclick="fnSetNavMenuIndex(2);" src="../image/footer03.jpg">
+  
+    </footer>
+  </body>
+  <script type="text/javascript" src="../script/api.js"></script>
+  <script type="text/javascript">
+      apiready = function(){
+          fnInitEventListenner();
+            var footer=$api.byId('footer');
+            /* $api.fixStatusBar(footer); *///固定状态栏
+            //获取导航条所有菜单
+            menus=$api.domAll(footer,'.menu');
+
+            var navGroup=[];//创建导航条数组
+
+            var footerH=$api.offset(footer).h;
+
+            for(var i=1; i<menus.length+1;i++){
+                navGroup.push({
+                    name:'home'+i,
+                    url:'./home'+i+'.html',
+                });
+            }
+
+            api.openFrameGroup({
+                name: 'mainFrameGroup',
+                rect:{
+                    x:0,
+                    y:0,
+                    w:'auto',
+                    h:"790px"
+                },
+                frames:navGroup,
+                preload: 0,
+            }, function(ret){
+                fnSetNavMenuSelected(ret.index);
+                if (ret.index == 2) {
+                    var navGroup = [];
+                    var idx = 1;
+                    navGroup.push({
+                            name: 'home3_' + idx,
+                            url: './home3_'+idx+'.html'
+                        });
+                    api.openFrameGroup({
+                        name: 'mainFrameGroup1',
+                        rect:{
+                            x:0,
+                            y:300,
+                            w:'auto',
+                            h:"500px"
+                        },
+                        frames:navGroup
+                    }, function(ret){
+                        // fnSetNavMenuSelected(ret.idx);
+                    });
+                }
+            });
+            api.openFrame({
+            name:'minicart',
+            url:'./minicart_frame.html',
+            rect:{
+                x:0,
+                y:api.winHeight-300,
+                w:150,
+                h:40
+            },
+        })
+        api.bringFrameToFront({
+            from:'minicart_frame'
+        })
+      };
+      function fnSetNavMenuIndex(index_){
+          if (index_ != 2) {
+            api.closeFrameGroup({
+                name:'mainFrameGroup1'
+            });
+          }
+        fnSetNavMenuSelected(index_);
+        api.setFrameGroupIndex({
+            name:'mainFrameGroup',
+            index:index_,
+            scroll:true
+        });
+    }
+    function fnSetNavMenuSelected(index_){
+        for(var i=0; i<menus.length; i++){
+            if(index_==i){
+                $api.addCls(menus[i],'selected');
+            }else{
+                $api.removeCls(menus[i],'selected');
+            }
+        }
+    }
+    function fnInitEventListenner(){
+        api.addEventListener({
+            name:'keyback'
+        }, function(ret){
+            api.confirm({
+                title:'提示',
+                msg:'是否退出应用',
+                buttons:['确定','取消']
+                
+            },function(ret){
+                if(ret.buttonIndex==1){
+                    api.closeWidget();
+                }
+            
+        });
+    });
+
+    }
+  </script>
+  </html>

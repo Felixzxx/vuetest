@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center{
+            width:100%;
+            height:900px;
+            background-image: url(../image/qidongye.png);
+            background-size: 100% auto;
+            position:relative;
+        }
+        .demo{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left:0;
+            right:0;
+            margin:40% auto;
+            width: 300px;
+            height: 300px;
+            background-image: url("../image/lucky.png");
+            background-size: 100% 100%;
+            animation: move 15s linear infinite;
+
+        }
+        @keyframes move{
+            0%{
+            transform: rotate(0deg);
+            }
+            100%{
+            transform: rotate(360deg);
+            }
+        }
+        .button {
+            position: absolute;
+            width:120px;
+            height:50px;
+            transform: translate(-50%,-30%);
+            left: 50%;
+            top:70%;
+
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;   
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #b1bbcf;
+            border: none;
+            border-radius: 15px;
+        }
+        .button:hover {background-color: #89919c}
+
+       
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div class="demo"></div>
+        <div class="btn">
+            <button class="button" tapmode onclick="btn();">点击抽奖</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+    function btn(){
+        console.time("a");
+        //alert("输入金额5元内可获得r-sp，输入金额6-8元可有更大概率获得sp哦,输入金额9-10元将获得sr-sp");
+        alert("输入钱越多，获得最高奖概率越高哦");
+        var num = prompt("请输入您要投入的金额，一个小于10的整数");
+        if(num<1||num>10){
+            alert("不合法");
+        }else{
+            alert("开始");
+            var a=0;
+            if(num<=5){
+                a=Math.round(Math.random()*10);//0-10
+            }else if(num<8){
+                a=Math.round(Math.random()*8)+2;//2-10
+            }else{
+                a=Math.round(Math.random()*5)+5;//5-10
+            }
+        if(a<5){
+            alert("很遗憾，未中奖");
+        }else if(a<8){
+            alert("三等奖");
+        }else if(a<=9){
+            alert("二等奖");
+        }else{
+            alert("恭喜，一等奖")
+        }
+        }
+        console.timeEnd("a");
+        
+}
+
+
+</script>
+</html>
